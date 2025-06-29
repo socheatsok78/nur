@@ -5,6 +5,7 @@
   fetchFromGitHub,
   installShellFiles,
   makeWrapper,
+  maintainers,
 }:
 
 buildGoModule rec {
@@ -21,14 +22,14 @@ buildGoModule rec {
   modRoot = "install";
   vendorHash = "sha256-VK704twd9Mvq2MQOud/dRrlrwtK0ImOF7jziyiGrT/U=";
 
-  meta = with lib; {
+  meta = {
     homepage = "https://github.com/fosrl/pangolin";
     changelog = "https://github.com/fosrl/pangolin/releases/tag/${version}";
     description = "Tunneled Reverse Proxy Server with Identity and Access Control and Dashboard UI";
     mainProgram = "installer";
-    license = licenses.agpl3Only;
-    maintainers = with maintainers; [
-      socheat
+    license = lib.licenses.agpl3Only;
+    maintainers = [
+      maintainers.socheat
     ];
   };
 }
