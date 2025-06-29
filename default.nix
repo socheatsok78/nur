@@ -13,13 +13,10 @@ rec
   lib = import ./lib { inherit pkgs; }; # functions
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
-  maintainers = import ./maintainers; # maintainers of this repository
 
   example-package = pkgs.callPackage ./pkgs/example-package {};
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 
-  pangolin-install = pkgs.callPackage ./pkgs/pangolin-install {
-    inherit maintainers;
-  };
+  pangolin-install = pkgs.callPackage ./pkgs/pangolin-install {};
 }
