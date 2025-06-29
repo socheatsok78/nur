@@ -1,0 +1,28 @@
+{
+    "nix.enableLanguageServer": true,
+    "nix.serverPath": "nixd",
+    "nix.serverSettings": {
+        "nil": {
+            "formatting": {
+                "command": [
+                    "nixfmt"
+                ],
+            },
+            "nix": {
+                "flake": {
+                    "autoEvalInputs": true,
+                },
+            },
+        },
+        "nixd": {
+            "formatting": {
+                "command": [
+                    "nixfmt"
+                ],
+            },
+            "nixpkgs": {
+                "expr": "import (builtins.getFlake \"${workspaceFolder}\").inputs.nixpkgs {}",
+            },
+        },
+    },
+}
