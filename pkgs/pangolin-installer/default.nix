@@ -1,19 +1,16 @@
 {
-  stdenv,
-  lib,
   buildGo123Module,
   fetchFromGitHub,
 }:
 
 buildGo123Module rec {
-  pname = "pangolin-install";
+  pname = "pangolin-installer";
   version = "1.5.1";
-
 
   src = fetchFromGitHub {
     owner = "fosrl";
     repo = "pangolin";
-    rev = "${version}";
+    rev = version;
     hash = "sha256-8YGDDUmA6q7DVt+TcyHLrzLrV6jLC0GZq85V+3STBRY=";
   };
 
