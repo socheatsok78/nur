@@ -1,13 +1,14 @@
 {
   stdenv,
   lib,
-  buildGoModule,
+  buildGo123Module,
   fetchFromGitHub,
 }:
 
-buildGoModule rec {
+buildGo123Module rec {
   pname = "pangolin-install";
   version = "1.5.1";
+
 
   src = fetchFromGitHub {
     owner = "fosrl";

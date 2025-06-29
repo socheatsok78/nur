@@ -7,7 +7,7 @@
 #     nix-build -A mypackage
 
 { pkgs ? import <nixpkgs> { } }:
-rec
+
 {
   # The `lib`, `modules`, and `overlays` names are special
   lib = import ./lib { inherit pkgs; }; # functions
@@ -18,5 +18,5 @@ rec
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 
-  pangolin-install = pkgs.callPackage ./pkgs/pangolin-install {};
+  pangolin-installer = pkgs.callPackage ./pkgs/pangolin-installer {};
 }
