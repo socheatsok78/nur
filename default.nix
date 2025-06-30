@@ -7,8 +7,10 @@
 #     nix-build -A mypackage
 
 { pkgs ? import <nixpkgs> { } }:
+rec {
+  # NUR
+  maintainer = import ./maintainers; # list of maintainers
 
-{
   # The `lib`, `modules`, and `overlays` names are special
   lib = import ./lib { inherit pkgs; }; # functions
   modules = import ./modules; # NixOS modules
@@ -18,5 +20,7 @@
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 
-  pangolin-installer = pkgs.callPackage ./pkgs/pangolin-installer {};
+  pangolin-installer = pkgs.callPackage ./pkgs/pangolin-installer {
+    inherit maintainer;
+  };
 }

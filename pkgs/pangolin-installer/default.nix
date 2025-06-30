@@ -1,4 +1,6 @@
 {
+  lib,
+  maintainer,
   buildGo123Module,
   fetchFromGitHub,
 }:
@@ -22,4 +24,15 @@ buildGo123Module rec {
   postInstall = ''
     mv $out/bin/installer $out/bin/${pname}
   '';
+
+  meta = with lib; {
+    homepage = "https://fossorial.io/";
+    description = "Tunneled Reverse Proxy Server with Identity and Access Control and Dashboard UI";
+    changelog = "https://github.com/fosrl/pangolin/releases/tag/1.5.1${version}";
+    license = licenses.agpl3Only;
+    mainProgram = "pangolin-installer";
+    maintainers = with lib.maintainers; [
+      maintainer.socheatsok78
+    ];
+  };
 }
