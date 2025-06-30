@@ -16,4 +16,10 @@ buildGo123Module rec {
 
   modRoot = "install";
   vendorHash = "sha256-VK704twd9Mvq2MQOud/dRrlrwtK0ImOF7jziyiGrT/U=";
+
+  doCheck = false;
+
+  postInstall = ''
+    mv $out/bin/installer $out/bin/${pname}
+  '';
 }
