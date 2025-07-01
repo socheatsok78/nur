@@ -29,5 +29,6 @@ in
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 
+  certstrap = callPackage ./pkgs/certstrap { };
   pangolin-installer = callPackage ./pkgs/pangolin-installer { };
 }
