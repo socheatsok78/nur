@@ -7,13 +7,13 @@
 
 buildGo123Module rec {
   pname = "pangolin-installer";
-  version = "1.5.1";
+  version = "1.7.3";
 
   src = fetchFromGitHub {
     owner = "fosrl";
     repo = "pangolin";
     rev = version;
-    hash = "sha256-8YGDDUmA6q7DVt+TcyHLrzLrV6jLC0GZq85V+3STBRY=";
+    hash = "sha256-w4IyLdah/MdFrk8kjGpg4ci+LEDCCYRsy1VPdDyNyXI=";
   };
 
   modRoot = "install";
