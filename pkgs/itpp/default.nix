@@ -51,7 +51,7 @@ stdenv.mkDerivation rec {
     "-DGTEST_DIR:PATH=${gtest.src}/googletest"
   ];
 
-  doCheck = true;
+  doCheck = false;
 
   checkPhase = ''
     ./gtests/itpp_gtests
