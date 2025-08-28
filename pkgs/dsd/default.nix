@@ -6,8 +6,10 @@
   mbelib,
   libsndfile,
   itpp,
-  portaudioSupport ? true,
-  portaudio ? null,
+  pulseaudioSupport ? !stdenv.hostPlatform.isDarwin,
+  libpulseaudio,
+  portaudioSupport ? stdenv.hostPlatform.isDarwin,
+  portaudio,
 }:
 
 assert portaudioSupport -> portaudio != null;
@@ -30,6 +32,10 @@ stdenv.mkDerivation {
     itpp
   ]
   ++ lib.optionals portaudioSupport [ portaudio ];
+
+  cmakeFlags = [
+    "-DCMAKE_CXX_FLAGS=-std=c++14"
+  ];
 
   doCheck = true;
 
