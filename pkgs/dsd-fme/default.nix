@@ -7,12 +7,13 @@
   libsndfile,
   itpp,
   ncurses,
-  pulseaudio,
   rtl-sdr,
   codec2,
   pkg-config,
-  portaudioSupport ? true,
-  portaudio ? null,
+  pulseaudioSupport ? !stdenv.hostPlatform.isDarwin,
+  pulseaudio,
+  portaudioSupport ? stdenv.hostPlatform.isDarwin,
+  portaudio,
 }:
 
 assert portaudioSupport -> portaudio != null;
@@ -35,9 +36,14 @@ stdenv.mkDerivation {
     rtl-sdr
     ncurses.dev
     pkg-config
-    pulseaudio.dev
     codec2
-  ] ++ lib.optionals portaudioSupport [ portaudio ];
+  ]
+  ++ lib.optionals pulseaudioSupport [ pulseaudio ]
+  ++ lib.optionals portaudioSupport [ portaudio ];
+
+  cmakeFlags = [
+    "-DCMAKE_CXX_FLAGS=-std=c++14"
+  ];
 
   doCheck = true;
 
