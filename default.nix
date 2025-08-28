@@ -30,6 +30,7 @@ in
   # ...
 
   certstrap = callPackage ./pkgs/certstrap { };
+  dsd-fme = callPackage ./pkgs/dsd-fme { };
   itpp = callPackage ./pkgs/itpp { };
   pangolin-installer = callPackage ./pkgs/pangolin-installer { };
 }
