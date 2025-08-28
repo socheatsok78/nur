@@ -1,6 +1,5 @@
 {
   lib,
-  maintainer,
   buildGo123Module,
   fetchFromGitHub,
 }:
@@ -31,8 +30,6 @@ buildGo123Module rec {
     changelog = "https://github.com/fosrl/pangolin/releases/tag/${version}";
     license = licenses.agpl3Only;
     mainProgram = "pangolin-installer";
-    maintainers = [
-      maintainer.socheatsok78
-    ];
+    maintainers = [];
   };
 }

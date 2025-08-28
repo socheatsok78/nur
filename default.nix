@@ -9,15 +9,6 @@
 {
   pkgs ? import <nixpkgs> { },
 }:
-let
-  # NUR
-  maintainer = import ./maintainers; # list of maintainers
-
-  # Call package with the maintainer
-  # This is a convenience function to avoid repeating the maintainer argument
-  # in every package definition.
-  callPackage = path: { }: pkgs.callPackage path { inherit maintainer; };
-in
 {
 
   # The `lib`, `modules`, and `overlays` names are special
@@ -29,8 +20,8 @@ in
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 
-  certstrap = callPackage ./pkgs/certstrap { };
-  dsd-fme = callPackage ./pkgs/dsd-fme { };
-  itpp = callPackage ./pkgs/itpp { };
-  pangolin-installer = callPackage ./pkgs/pangolin-installer { };
+  certstrap = pkgs.callPackage ./pkgs/certstrap { };
+  dsd-fme = pkgs.callPackage ./pkgs/dsd-fme { };
+  itpp = pkgs.callPackage ./pkgs/itpp { };
+  pangolin-installer = pkgs.callPackage ./pkgs/pangolin-installer { };
 }
