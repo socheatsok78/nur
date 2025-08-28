@@ -2,27 +2,21 @@
   lib,
   stdenv,
   cmake,
-  fetchurl,
   fetchFromGitHub,
   mbelib,
   libsndfile,
+  itpp,
   ncurses,
   pulseaudio,
   rtl-sdr,
   codec2,
-  gtest,
-  blas,
-  fftw,
-  liblapack,
-  gfortran,
   portaudioSupport ? true,
   portaudio ? null,
-  ...
 }:
 
 assert portaudioSupport -> portaudio != null;
 
-stdenv.mkDerivation rec{
+stdenv.mkDerivation {
   name = "dsd-fme";
 
   src = fetchFromGitHub {
@@ -31,8 +25,6 @@ stdenv.mkDerivation rec{
     rev = "bd75c1ab83152496897b50bc1b72f2945c750d8f";
     sha256 = "sha256-Hj6wEvwnm5zuQdktIWmtAi0IyGbFVpTfCh890BXwzbg=";
   };
-
-  itpp = import ./itpp.nix { inherit lib stdenv fetchurl cmake gtest blas fftw liblapack gfortran; };
 
   nativeBuildInputs = [ cmake ];
   buildInputs = [

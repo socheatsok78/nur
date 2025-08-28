@@ -9,8 +9,7 @@
 {
   pkgs ? import <nixpkgs> { },
 }:
-{
-
+rec {
   # The `lib`, `modules`, and `overlays` names are special
   lib = import ./lib { inherit pkgs; }; # functions
   modules = import ./modules; # NixOS modules
@@ -21,7 +20,7 @@
   # ...
 
   certstrap = pkgs.callPackage ./pkgs/certstrap { };
-  dsd-fme = pkgs.callPackage ./pkgs/dsd-fme { };
+  dsd-fme = pkgs.callPackage ./pkgs/dsd-fme { inherit itpp; };
   itpp = pkgs.callPackage ./pkgs/itpp { };
   pangolin-installer = pkgs.callPackage ./pkgs/pangolin-installer { };
 }
