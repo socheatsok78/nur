@@ -10,6 +10,7 @@
   pulseaudio,
   rtl-sdr,
   codec2,
+  pkg-config,
   portaudioSupport ? true,
   portaudio ? null,
 }:
@@ -33,6 +34,7 @@ stdenv.mkDerivation {
     itpp
     rtl-sdr
     ncurses.dev
+    pkg-config
     pulseaudio.dev
     codec2
   ] ++ lib.optionals portaudioSupport [ portaudio ];
