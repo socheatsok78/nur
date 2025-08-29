@@ -21,6 +21,7 @@
   bluez5,
   udev,
   openssl,
+  orc,
   fftwFloat,
   soxr,
   speexdsp,
@@ -135,6 +136,9 @@ stdenv.mkDerivation rec {
   ++ lib.optionals (!stdenv.hostPlatform.isDarwin) [
     dbus
   ]
+  ++ lib.optionals (stdenv.hostPlatform.isDarwin) [
+    orc
+  ]
   ++ lib.optionals (stdenv.hostPlatform.isDarwin || stdenv.hostPlatform.isFreeBSD) [
     libintl
   ]
@@ -202,7 +206,7 @@ stdenv.mkDerivation rec {
     (lib.mesonEnable "jack" (jackaudioSupport && !libOnly))
     (lib.mesonEnable "lirc" remoteControlSupport)
     (lib.mesonEnable "openssl" airtunesSupport)
-    (lib.mesonEnable "orc" false)
+    (lib.mesonEnable "orc" stdenv.hostPlatform.isDarwin) # required on macOS
     (lib.mesonEnable "systemd" (useSystemd && !libOnly))
     (lib.mesonEnable "tcpwrap" false)
     (lib.mesonEnable "udev" (!libOnly && udevSupport))
@@ -230,8 +234,9 @@ stdenv.mkDerivation rec {
     (lib.mesonEnable "consolekit" false)
     (lib.mesonEnable "dbus" false)
     (lib.mesonEnable "glib" true)
+    (lib.mesonEnable "soxr" true)
+    (lib.mesonEnable "speex" true)
     (lib.mesonEnable "oss-output" false)
-    "-Dsoxr=enabled"
     "-Dstream-restore-clear-old-devices=true"
   ];
 
