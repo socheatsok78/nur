@@ -131,6 +131,8 @@ stdenv.mkDerivation rec {
     fftwFloat
     check
     glib
+  ]
+  ++ lib.optionals (!stdenv.hostPlatform.isDarwin) [
     dbus
   ]
   ++ lib.optionals (stdenv.hostPlatform.isDarwin || stdenv.hostPlatform.isFreeBSD) [
@@ -221,11 +223,16 @@ stdenv.mkDerivation rec {
   ++ lib.optionals (stdenv.hostPlatform.isLinux && useSystemd) [
     (lib.mesonOption "systemduserunitdir" "${placeholder "out"}/lib/systemd/user")
   ]
+  ++ lib.optionals (!stdenv.hostPlatform.isDarwin) [
+    (lib.mesonEnable "dbus" true)
+  ]
   ++ lib.optionals stdenv.hostPlatform.isDarwin [
     (lib.mesonEnable "consolekit" false)
-    (lib.mesonEnable "dbus" true)
+    (lib.mesonEnable "dbus" false)
     (lib.mesonEnable "glib" true)
     (lib.mesonEnable "oss-output" false)
+    "-Dsoxr=enabled"
+    "-Dstream-restore-clear-old-devices=true"
   ];
 
   # tests fail on Darwin because of timeouts
