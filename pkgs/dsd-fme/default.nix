@@ -11,7 +11,7 @@
   codec2,
   pkg-config,
   pulseaudioSupport ? !stdenv.hostPlatform.isDarwin,
-  pulseaudio,
+  pulseaudioFull,
   portaudioSupport ? stdenv.hostPlatform.isDarwin,
   portaudio,
 }:
@@ -28,6 +28,11 @@ stdenv.mkDerivation {
     sha256 = "sha256-Hj6wEvwnm5zuQdktIWmtAi0IyGbFVpTfCh890BXwzbg=";
   };
 
+  patches = [
+    ./dsd.h.patch
+    ./disable_oss.patch
+  ];
+
   nativeBuildInputs = [ cmake ];
   buildInputs = [
     mbelib
@@ -38,12 +43,12 @@ stdenv.mkDerivation {
     pkg-config
     codec2
   ]
-  ++ lib.optionals pulseaudioSupport [ pulseaudio ]
+  ++ lib.optionals pulseaudioSupport [ pulseaudioFull ]
   ++ lib.optionals portaudioSupport [ portaudio ];
 
-  cmakeFlags = [
-    "-DCMAKE_CXX_FLAGS=-std=c++14"
-  ];
+  # cmakeFlags = [
+  #   "-DCMAKE_CXX_FLAGS=-std=c++14"
+  # ];
 
   doCheck = true;
 
