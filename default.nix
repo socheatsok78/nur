@@ -33,9 +33,9 @@ rec {
   pulseaudioFull = pulseaudio.override {
     jackaudioSupport = true;
     airtunesSupport = true;
-    bluetoothSupport = !lib.stdenv.hostPlatform.isDarwin;
-    advancedBluetoothCodecs = !lib.stdenv.hostPlatform.isDarwin;
-    remoteControlSupport = !lib.stdenv.hostPlatform.isDarwin;
+    bluetoothSupport = !pkgs.stdenv.hostPlatform.isDarwin;
+    advancedBluetoothCodecs = !pkgs.stdenv.hostPlatform.isDarwin;
+    remoteControlSupport = !pkgs.stdenv.hostPlatform.isDarwin;
     zeroconfSupport = true;
   };
   libpulseaudio = pulseaudio.override {
