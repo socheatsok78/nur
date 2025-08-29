@@ -9,17 +9,7 @@
 {
   pkgs ? import <nixpkgs> { },
 }:
-let
-  # NUR
-  maintainer = import ./maintainers; # list of maintainers
-
-  # Call package with the maintainer
-  # This is a convenience function to avoid repeating the maintainer argument
-  # in every package definition.
-  callPackage = path: { }: pkgs.callPackage path { inherit maintainer; };
-in
-{
-
+rec {
   # The `lib`, `modules`, and `overlays` names are special
   lib = import ./lib { inherit pkgs; }; # functions
   modules = import ./modules; # NixOS modules
@@ -29,6 +19,26 @@ in
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 
-  certstrap = callPackage ./pkgs/certstrap { };
-  pangolin-installer = callPackage ./pkgs/pangolin-installer { };
+  certstrap = pkgs.callPackage ./pkgs/certstrap { };
+  dsd = pkgs.callPackage ./pkgs/dsd {
+    inherit itpp;
+  };
+  dsd-fme = pkgs.callPackage ./pkgs/dsd-fme {
+    inherit itpp libpulseaudio;
+    pulseaudioSupport = true;
+  };
+  itpp = pkgs.callPackage ./pkgs/itpp { };
+  pangolin-installer = pkgs.callPackage ./pkgs/pangolin-installer { };
+  pulseaudio = pkgs.callPackage ./pkgs/pulseaudio { };
+  pulseaudioFull = pulseaudio.override {
+    jackaudioSupport = true;
+    airtunesSupport = true;
+    bluetoothSupport = !pkgs.stdenv.hostPlatform.isDarwin;
+    advancedBluetoothCodecs = !pkgs.stdenv.hostPlatform.isDarwin;
+    remoteControlSupport = !pkgs.stdenv.hostPlatform.isDarwin;
+    zeroconfSupport = true;
+  };
+  libpulseaudio = pulseaudio.override {
+    libOnly = true;
+  };
 }

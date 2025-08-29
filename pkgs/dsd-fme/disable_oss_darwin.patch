@@ -1,0 +1,103 @@
+diff --git a/include/dsd.h b/include/dsd.h
+index 4514c09..b945592 100644
+--- a/include/dsd.h
++++ b/include/dsd.h
+@@ -59,7 +59,9 @@
+ #include "p25p1_heuristics.h"
+ 
+ //OSS support
++#if defined(BSD) && !defined(__APPLE__)
+ #include <sys/soundcard.h>
++#endif
+ 
+ #include <pulse/pulseaudio.h> //PULSE AUDIO
+ #include <pulse/simple.h>     //PULSE AUDIO
+@@ -1121,7 +1123,9 @@ void processAudio (dsd_opts * opts, dsd_state * state);
+ void processAudioR (dsd_opts * opts, dsd_state * state);
+ void openPulseInput (dsd_opts * opts);
+ void openPulseOutput (dsd_opts * opts);
++#if defined(BSD) && !defined(__APPLE__)
+ void openOSSOutput (dsd_opts * opts);
++#endif
+ void closePulseInput (dsd_opts * opts);
+ void closePulseOutput (dsd_opts * opts);
+ void writeSynthesizedVoice (dsd_opts * opts, dsd_state * state);
+diff --git a/src/dsd_audio.c b/src/dsd_audio.c
+index 4f67a84..286147a 100644
+--- a/src/dsd_audio.c
++++ b/src/dsd_audio.c
+@@ -187,6 +187,7 @@ void parse_pulse_output_string (dsd_opts * opts, char * input)
+   }
+ }
+ 
++#if defined(BSD) && !defined(__APPLE__)
+ void openOSSOutput (dsd_opts * opts)
+ {
+   int fmt;
+@@ -301,6 +302,7 @@ void openOSSOutput (dsd_opts * opts)
+     }
+   }
+ }
++#endif
+ 
+ void
+ processAudio (dsd_opts * opts, dsd_state * state)
+diff --git a/src/dsd_main.c b/src/dsd_main.c
+index 2377e5c..59b710d 100644
+--- a/src/dsd_main.c
++++ b/src/dsd_main.c
+@@ -3481,6 +3481,7 @@
+        fprintf (stderr, "Switching to /dev/dsp.\n");
+      }
+  
++     #if defined(BSD) && !defined(__APPLE__)
+      speed = 48000; //hardset to 48000
+      if((strncmp(opts.audio_in_dev, "/dev/dsp", 8) == 0))
+      {
+@@ -3521,6 +3522,7 @@
+        sprintf (opts.audio_out_dev, "%s", "/dev/dsp");
+        fprintf (stderr, "Switching to /dev/dsp.\n");
+      }
++     #endif
+  
+      if((strncmp(opts.audio_out_dev, "pa", 2) == 0))
+      {
+@@ -3530,8 +3532,10 @@
+  
+      //this will only open OSS output if its listed as a type
+      //changed to this so I could call it freely inside of ncurses terminal
++     #if defined(BSD) && !defined(__APPLE__)
+      if (opts.playfiles == 0)
+       openOSSOutput(&opts);
++     #endif
+  
+      if (opts.playfiles == 1)
+      {
+@@ -3543,8 +3547,10 @@
+        opts.pulse_digi_out_channels = 1;
+        if (opts.audio_out_type == 0)
+         openPulseOutput(&opts);
++       #if defined(BSD) && !defined(__APPLE__)
+        else if((strncmp(opts.audio_out_dev, "/dev/dsp", 8) == 0))
+         openOSSOutput(&opts); //open after split == 1 so it will open and playback at the proper speed
++       #endif
+      }
+  
+      //this particular if-elseif-else could be rewritten to be a lot neater and simpler
+diff --git a/src/dsd_ncurses_menu.c b/src/dsd_ncurses_menu.c
+index 5feeb30..f1a4b52 100644
+--- a/src/dsd_ncurses_menu.c
++++ b/src/dsd_ncurses_menu.c
+@@ -1587,10 +1587,12 @@ void ncursesMenu (dsd_opts * opts, dsd_state * state)
+     openPulseOutput (opts);
+   }
+ 
++  #if defined(BSD) && !defined(__APPLE__)
+   if (opts->audio_out_type == 2 || opts->audio_out_type == 5)
+   {
+     openOSSOutput (opts);
+   }
++  #endif
+ 
+ 
+   if (opts->audio_in_type == 0) //reopen pulse input if it is the specified input method
