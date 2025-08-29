@@ -29,8 +29,7 @@ stdenv.mkDerivation {
   };
 
   patches = [
-    ./dsd.h.patch
-    ./disable_oss.patch
+    ./disable_oss_darwin.patch
   ];
 
   nativeBuildInputs = [ cmake ];
