@@ -119,9 +119,7 @@ stdenv.mkDerivation rec {
 
   preConfigure = "" + lib.optionals stdenv.hostPlatform.isDarwin ''
       # Restore coreaudio module as default on macOS
-      if [ "${stdenv.hostPlatform.system}" = "x86_64-darwin" ] || [ "${stdenv.hostPlatform.system}" = "aarch64-darwin" ]; then
-        sed -i "s/cdata.set('HAVE_COREAUDIO', 0)/cdata.set('HAVE_COREAUDIO', 1)/" meson.build
-      fi
+      sed -i "s/cdata.set('HAVE_COREAUDIO', 0)/cdata.set('HAVE_COREAUDIO', 1)/" meson.build
     '';
 
   buildInputs = [
