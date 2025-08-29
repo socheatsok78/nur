@@ -30,7 +30,13 @@ rec {
   itpp = pkgs.callPackage ./pkgs/itpp { };
   pangolin-installer = pkgs.callPackage ./pkgs/pangolin-installer { };
   pulseaudio = pkgs.callPackage ./pkgs/pulseaudio { };
-  pulseaudioFull = pkgs.callPackage ./pkgs/pulseaudio {
+  pulseaudioFull = pulseaudio.override {
     jackaudioSupport = true;
+    airtunesSupport = true;
+    bluetoothSupport = !lib.stdenv.hostPlatform.isDarwin;
+    advancedBluetoothCodecs = !lib.stdenv.hostPlatform.isDarwin;
+    remoteControlSupport = !lib.stdenv.hostPlatform.isDarwin;
+    zeroconfSupport = true;
+  };
   };
 }
