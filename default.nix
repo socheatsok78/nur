@@ -24,7 +24,7 @@ rec {
     inherit itpp;
   };
   dsd-fme = pkgs.callPackage ./pkgs/dsd-fme {
-    inherit itpp pulseaudioFull;
+    inherit itpp libpulseaudio;
     pulseaudioSupport = true;
   };
   itpp = pkgs.callPackage ./pkgs/itpp { };

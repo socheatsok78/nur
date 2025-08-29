@@ -11,7 +11,7 @@
   codec2,
   pkg-config,
   pulseaudioSupport ? !stdenv.hostPlatform.isDarwin,
-  pulseaudioFull,
+  libpulseaudio,
   portaudioSupport ? stdenv.hostPlatform.isDarwin,
   portaudio,
 }:
@@ -43,7 +43,7 @@ stdenv.mkDerivation {
     pkg-config
     codec2
   ]
-  ++ lib.optionals pulseaudioSupport [ pulseaudioFull ]
+  ++ lib.optionals pulseaudioSupport [ libpulseaudio ]
   ++ lib.optionals portaudioSupport [ portaudio ];
 
   # cmakeFlags = [
