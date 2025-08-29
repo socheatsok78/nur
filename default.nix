@@ -21,7 +21,10 @@ rec {
 
   certstrap = pkgs.callPackage ./pkgs/certstrap { };
   dsd = pkgs.callPackage ./pkgs/dsd { inherit itpp; };
-  dsd-fme = pkgs.callPackage ./pkgs/dsd-fme { inherit itpp; };
+  dsd-fme = pkgs.callPackage ./pkgs/dsd-fme {
+    inherit itpp pulseaudioFull;
+    pulseaudioSupport = true;
+  };
   itpp = pkgs.callPackage ./pkgs/itpp { };
   pangolin-installer = pkgs.callPackage ./pkgs/pangolin-installer { };
   pulseaudio = pkgs.callPackage ./pkgs/pulseaudio {  };
