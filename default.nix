@@ -38,5 +38,7 @@ rec {
     remoteControlSupport = !lib.stdenv.hostPlatform.isDarwin;
     zeroconfSupport = true;
   };
+  libpulseaudio = pulseaudio.override {
+    libOnly = true;
   };
 }
