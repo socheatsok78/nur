@@ -24,4 +24,6 @@ rec {
   dsd-fme = pkgs.callPackage ./pkgs/dsd-fme { inherit itpp; };
   itpp = pkgs.callPackage ./pkgs/itpp { };
   pangolin-installer = pkgs.callPackage ./pkgs/pangolin-installer { };
+  pulseaudio = pkgs.callPackage ./pkgs/pulseaudio {  };
+  pulseaudioFull = pkgs.callPackage ./pkgs/pulseaudio { jackaudioSupport = true; };
 }
