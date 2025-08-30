@@ -28,6 +28,7 @@ rec {
     pulseaudioSupport = true;
   };
   itpp = pkgs.callPackage ./pkgs/itpp { };
+  mbelib = pkgs.callPackage ./pkgs/mbelib { };
   pangolin-installer = pkgs.callPackage ./pkgs/pangolin-installer { };
   pulseaudio = pkgs.callPackage ./pkgs/pulseaudio { };
   pulseaudioFull = pulseaudio.override {
