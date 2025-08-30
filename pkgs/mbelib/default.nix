@@ -12,8 +12,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "lwvmobile";
     repo = "mbelib";
-    rev = "34adf9f054bc5650ace162a4917dcbc2cfa6102e";
-    sha256 = "sha256-j/P+KMIN6PqMnUHfcNmAOdHPXWnJm8P3jVmWK5smQPw=";
+    rev = "30dc79074ca022366a27d705b8023011d9600339";
+    sha256 = "";
   };
 
   nativeBuildInputs = [ cmake ];
