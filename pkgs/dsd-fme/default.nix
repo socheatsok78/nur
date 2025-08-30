@@ -16,6 +16,7 @@
   portaudio,
 }:
 
+assert pulseaudioSupport -> libpulseaudio != null;
 assert portaudioSupport -> portaudio != null;
 
 stdenv.mkDerivation {
