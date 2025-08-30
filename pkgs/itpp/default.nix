@@ -48,14 +48,14 @@ stdenv.mkDerivation rec {
     "-DBLAS_LIBRARIES:STRING=${blas}/lib/${libblasSharedObject}"
     "-DLAPACK_FOUND:BOOL=TRUE"
     "-DLAPACK_LIBRARIES:STRING=${liblapack}/lib/${liblapackSharedObject}"
-    "-DGTEST_DIR:PATH=${gtest.src}/googletest"
+    # "-DGTEST_DIR:PATH=${gtest.src}/googletest"
   ];
 
   doCheck = false;
 
-  checkPhase = ''
-    ./gtests/itpp_gtests
-  '';
+  # checkPhase = ''
+  #   ./gtests/itpp_gtests
+  # '';
 
   meta = with lib; {
     description = "IT++ is a C++ library of mathematical, signal processing and communication classes and functions";
