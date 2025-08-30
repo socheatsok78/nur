@@ -117,7 +117,7 @@ stdenv.mkDerivation rec {
 
   propagatedBuildInputs = lib.optionals stdenv.hostPlatform.isLinux [ libcap ];
 
-  preConfigure = "" + lib.optionals stdenv.hostPlatform.isDarwin ''
+  preConfigure = "" + lib.optionalString stdenv.hostPlatform.isDarwin ''
       # Restore coreaudio module as default on macOS
       sed -i "s/cdata.set('HAVE_COREAUDIO', 0)/cdata.set('HAVE_COREAUDIO', 1)/" meson.build
     '';
