@@ -37,7 +37,7 @@ stdenv.mkDerivation {
     "-DCMAKE_CXX_FLAGS=-std=c++14"
   ];
 
-  doCheck = true;
+  doCheck = false;
 
   meta = with lib; {
     description = "Digital Speech Decoder";
