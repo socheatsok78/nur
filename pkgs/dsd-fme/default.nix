@@ -19,8 +19,10 @@
 assert pulseaudioSupport -> libpulseaudio != null;
 assert portaudioSupport -> portaudio != null;
 
-stdenv.mkDerivation {
-  name = "dsd-fme";
+stdenv.mkDerivation rec {
+  pname = "dsd-fme";
+  pversion = "2025-08-24";
+  name = "${pname}-${pversion}";
 
   src = fetchFromGitHub {
     owner = "lwvmobile";
