@@ -1,22 +1,22 @@
 {
   lib,
-  buildGo123Module,
+  buildGo124Module,
   fetchFromGitHub,
 }:
 
-buildGo123Module rec {
+buildGo124Module rec {
   pname = "pangolin-installer";
-  version = "1.7.3";
+  version = "1.9.3";
 
   src = fetchFromGitHub {
     owner = "fosrl";
     repo = "pangolin";
     rev = version;
-    hash = "sha256-w4IyLdah/MdFrk8kjGpg4ci+LEDCCYRsy1VPdDyNyXI=";
+    hash = "sha256-E0useOuRq9YVWPC8JvsB1u29hqBmKqnhIx1u3KvjqBo=";
   };
 
   modRoot = "install";
-  vendorHash = "sha256-VK704twd9Mvq2MQOud/dRrlrwtK0ImOF7jziyiGrT/U=";
+  vendorHash = "sha256-ib38CI4V1sg54hwQ+a19ykZoZKKj0zRn9Rm7nxsCfnI=";
 
   doCheck = false;
 
