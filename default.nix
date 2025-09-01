@@ -25,6 +25,10 @@ rec {
     pulseaudioSupport = true;
   };
   itpp = pkgs.callPackage ./pkgs/itpp { };
+  m17-fme = pkgs.callPackage ./pkgs/m17-fme {
+    inherit itpp libpulseaudio;
+    pulseaudioSupport = true;
+  };
   mbelib = pkgs.callPackage ./pkgs/mbelib { };
   pangolin-installer = pkgs.callPackage ./pkgs/pangolin-installer { };
   pulseaudio = pkgs.callPackage ./pkgs/pulseaudio { };
