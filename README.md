@@ -1,6 +1,6 @@
 ## About
 
-[@socheatsok78](https://github.com/socheatsok78) Nix User Repository
+[@socheatsok78](https://github.com/socheatsok78)'s Nix User Repository
 
 [![Build and populate cache](https://github.com/socheatsok78/nur/actions/workflows/build.yml/badge.svg)](https://github.com/socheatsok78/nur/actions/workflows/build.yml)
 
