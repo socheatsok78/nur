@@ -21,8 +21,8 @@ stdenv.mkDerivation {
   doCheck = true;
 
   meta = with lib; {
-    description = "P25 Phase 1 and ProVoice vocoder";
-    homepage = "https://github.com/szechyjs/mbelib";
+    description = "Full Rate and Half Rate Radio Vocoder";
+    homepage = "https://github.com/lwvmobile/mbelib";
     license = licenses.isc;
     platforms = platforms.unix;
     maintainers = [ ];
