@@ -15,8 +15,7 @@
     in
     {
       legacyPackages = forAllSupportedSystems (
-        system:
-        import ./default.nix {
+        system: import ./default.nix {
           pkgs = import nixpkgs { inherit system; };
         }
       );
