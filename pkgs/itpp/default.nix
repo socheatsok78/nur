@@ -3,12 +3,11 @@
   stdenv,
   fetchurl,
   cmake,
-  gtest,
+  # gtest,
   blas,
   fftw,
   liblapack,
   gfortran,
-  ...
 }:
 
 stdenv.mkDerivation rec {
