@@ -7,7 +7,7 @@
   libsndfile,
   itpp,
   ncurses,
-  rtl-sdr,
+  rtl-sdr-osmocom,
   codec2,
   pkg-config,
   pulseaudioSupport ? !stdenv.hostPlatform.isDarwin,
@@ -40,7 +40,7 @@ stdenv.mkDerivation rec {
     mbelib
     libsndfile
     itpp
-    rtl-sdr
+    rtl-sdr-osmocom
     ncurses.dev
     pkg-config
     codec2
