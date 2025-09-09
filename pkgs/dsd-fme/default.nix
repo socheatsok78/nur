@@ -3,7 +3,7 @@
   stdenv,
   cmake,
   fetchFromGitHub,
-  mbelib,
+  mbelib-lwvmobile,
   libsndfile,
   itpp,
   ncurses,
@@ -37,7 +37,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ cmake ];
   buildInputs = [
-    mbelib
+    mbelib-lwvmobile
     libsndfile
     itpp
     rtl-sdr-osmocom

@@ -21,7 +21,7 @@ rec {
     inherit itpp;
   };
   dsd-fme = pkgs.callPackage ./pkgs/dsd-fme {
-    inherit itpp libpulseaudio mbelib;
+    inherit itpp libpulseaudio mbelib-lwvmobile;
     pulseaudioSupport = true;
   };
   itpp = pkgs.callPackage ./pkgs/itpp { };
@@ -29,7 +29,7 @@ rec {
     inherit itpp libpulseaudio;
     pulseaudioSupport = true;
   };
-  mbelib = pkgs.callPackage ./pkgs/mbelib { };
+  mbelib-lwvmobile = pkgs.callPackage ./pkgs/mbelib-lwvmobile { };
   pangolin-installer = pkgs.callPackage ./pkgs/pangolin-installer { };
   pulseaudio = pkgs.callPackage ./pkgs/pulseaudio { };
   pulseaudioFull = pulseaudio.override {

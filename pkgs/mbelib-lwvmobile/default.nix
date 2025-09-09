@@ -6,7 +6,7 @@
 }:
 
 stdenv.mkDerivation {
-  pname = "mbelib";
+  pname = "mbelib-lwvmobile";
   version = "2022-08-25";
 
   src = fetchFromGitHub {
