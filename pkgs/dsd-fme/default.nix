@@ -21,14 +21,14 @@ assert portaudioSupport -> portaudio != null;
 
 stdenv.mkDerivation rec {
   pname = "dsd-fme";
-  pversion = "2025-09-02";
+  pversion = "2025-09-12";
   name = "${pname}-${pversion}";
 
   src = fetchFromGitHub {
     owner = "lwvmobile";
     repo = "dsd-fme";
-    rev = "9acd8c981e56096197a198df5bfa5c8e5cfbaa3a";
-    sha256 = "sha256-AG/FofwdHohH5WWMQc33Q2y/tHUnWsfLJQ8qn0ksAc0=";
+    rev = "b0a46a541d81d4fde241a82b01a982678888b8ae";
+    sha256 = "sha256-EgFZsbA7u6ujI2WonJ7OmrjxzAijnVFBD2bqQWC6LCU=";
   };
 
   patches = [
