@@ -15,10 +15,21 @@ jobs:
   tests:
     strategy:
       matrix:
-        os:
-          - macos-15
-          - macos-26
-          - ubuntu-latest
+        nixpkgs:
+          - os: macos-15
+            branch: nixpkgs-unstable
+          - os: macos-15
+            branch: nixpkgs-25.05-darwin
+          - os: macos-26
+            branch: nixpkgs-unstable
+          - os: macos-26
+            branch: nixpkgs-25.05-darwin
+          - os: ubuntu-latest
+            branch: nixpkgs-unstable
+          - os: ubuntu-latest
+            branch: nixos-unstable
+          - os: ubuntu-latest
+            branch: nixos-25.05
         # Set this to notify the global nur package registry that changes are
         # available.
         #
@@ -38,18 +49,18 @@ jobs:
         # https://github.com/<your_githubname>/nur-packages/settings/secrets
         cachixName:
           - socheatsok78-nur
-        nixPath:
-          - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz
-          - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-unstable.tar.gz
-          - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-25.05.tar.gz
-    runs-on: ${{ matrix.os }}
+        # nixPath:
+        #   - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz
+        #   - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-unstable.tar.gz
+        #   - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-25.05.tar.gz
+    runs-on: ${{ matrix.nixpkgs.os }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v5
     - name: Install nix
       uses: cachix/install-nix-action@v31
       with:
-        nix_path: "${{ matrix.nixPath }}"
+        nix_path: "nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/${{ matrix.nixpkgs.branch }}.tar.gz"
         extra_nix_config: |
           experimental-features = nix-command flakes
           access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
