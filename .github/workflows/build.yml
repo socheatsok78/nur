@@ -16,8 +16,9 @@ jobs:
     strategy:
       matrix:
         os:
+          - macos-15
+          - macos-26
           - ubuntu-latest
-          - macos-latest
         # Set this to notify the global nur package registry that changes are
         # available.
         #
