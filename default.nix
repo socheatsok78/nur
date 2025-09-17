@@ -30,7 +30,7 @@ rec {
     pulseaudioSupport = true;
   };
   mbelib-lwvmobile = pkgs.callPackage ./pkgs/mbelib-lwvmobile { };
-  pangolin-installer = pkgs.callPackage ./pkgs/pangolin-installer { };
+  fosrl-installer = pkgs.callPackage ./pkgs/fosrl-installer { };
   pulseaudio = pkgs.callPackage ./pkgs/pulseaudio { };
   pulseaudioFull = pulseaudio.override {
     jackaudioSupport = true;

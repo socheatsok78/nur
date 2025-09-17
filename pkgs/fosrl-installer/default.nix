@@ -5,7 +5,7 @@
 }:
 
 buildGo124Module rec {
-  pname = "pangolin-installer";
+  pname = "fosrl-installer";
   version = "1.9.3";
 
   src = fetchFromGitHub {
@@ -29,7 +29,7 @@ buildGo124Module rec {
     description = "Tunneled Reverse Proxy Server with Identity and Access Control and Dashboard UI";
     changelog = "https://github.com/fosrl/pangolin/releases/tag/${version}";
     license = licenses.agpl3Only;
-    mainProgram = "pangolin-installer";
+    mainProgram = "fosrl-installer";
     maintainers = [];
   };
 }
