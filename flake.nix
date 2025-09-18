@@ -12,18 +12,22 @@
       ];
       forAllSupportedSystems = nixpkgs.lib.genAttrs supportedSystems;
       # forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
+
+      # modules = import ./modules; # NixOS modules
+      overlays = import ./overlays; # nixpkgs overlays
     in
     {
+      # modules = modules;
+      overlays = {
+        default = overlays;
+      };
+      packages = forAllSupportedSystems (
+        system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system}
+      );
       legacyPackages = forAllSupportedSystems (
         system: import ./default.nix {
           pkgs = import nixpkgs { inherit system; };
         }
-      );
-      overlays = {
-        default = import ./overlay.nix;
-      };
-      packages = forAllSupportedSystems (
-        system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system}
       );
     };
 }
