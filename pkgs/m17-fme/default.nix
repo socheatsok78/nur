@@ -17,14 +17,14 @@ assert pulseaudioSupport -> libpulseaudio != null;
 
 stdenv.mkDerivation rec {
   pname = "m17-fme";
-  pversion = "2025-09-08";
+  pversion = "2025-09-15";
   name = "${pname}-${pversion}";
 
   src = fetchFromGitHub {
     owner = "lwvmobile";
     repo = "m17-fme";
-    rev = "13c93705ef988e8b3514a5bf83dc9cdded39ed79";
-    sha256 = "sha256-v7/wL6WWFdIT187BTR7X7Fr5NygDZL8JbsrlRuLiXYw=";
+    rev = "20474be849c9b3d4a383bf5fe16ecb1177fbd52c";
+    sha256 = "sha256-QkSNMUn5Nelns92Z0Kc4bsa/sLnO4mEl+OILaM0bz6M=";
   };
 
   nativeBuildInputs = [ cmake ];
