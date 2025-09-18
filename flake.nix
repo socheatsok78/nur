@@ -13,8 +13,7 @@
       forAllSupportedSystems = nixpkgs.lib.genAttrs supportedSystems;
       # forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
 
-      # modules = import ./modules; # NixOS modules
-      overlays = import ./overlays; # nixpkgs overlays
+      overlays = import ./overlay.nix; # nixpkgs overlays
     in
     {
       # modules = modules;
