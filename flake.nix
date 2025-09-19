@@ -16,10 +16,12 @@
       overlays = import ./overlay.nix; # nixpkgs overlays
     in
     {
-      # modules = modules;
+      # Define the overlay and packages for each supported system
       overlays = {
         default = overlays;
       };
+
+      # Packages defined for each supported system
       packages = forAllSupportedSystems (
         system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system}
       );
