@@ -24,10 +24,11 @@ stdenv.mkDerivation rec {
   pversion = "2025-09-22";
   name = "${pname}-${pversion}";
 
+  rev = "f3b89f1c51bdfec5482b320788ee3dad3ee4267a";
   src = fetchFromGitHub {
     owner = "lwvmobile";
     repo = "dsd-fme";
-    rev = "f3b89f1c51bdfec5482b320788ee3dad3ee4267a";
+    rev = rev;
     sha256 = "sha256-nTOH9zUD7Y55arGj919g905zZ7RWTSb991IsfQTRXwk=";
   };
 
@@ -47,6 +48,10 @@ stdenv.mkDerivation rec {
   ]
   ++ lib.optionals pulseaudioSupport [ libpulseaudio ]
   ++ lib.optionals portaudioSupport [ portaudio ];
+
+  preConfigure = ''
+    sed -i 's|git_describe(GIT_TAG)|set(GIT_TAG "${rev}")|' CMakeLists.txt
+  '';
 
   # cmakeFlags = [
   #   "-DCMAKE_CXX_FLAGS=-std=c++14"

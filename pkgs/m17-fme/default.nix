@@ -20,10 +20,11 @@ stdenv.mkDerivation rec {
   pversion = "2025-10-06";
   name = "${pname}-${pversion}";
 
+  rev = "75a15c7a9e650fd18a76e9824c941f967ff2063e";
   src = fetchFromGitHub {
     owner = "lwvmobile";
     repo = "m17-fme";
-    rev = "75a15c7a9e650fd18a76e9824c941f967ff2063e";
+    rev = rev;
     sha256 = "sha256-3BswF21uCzii92ASKEydieTIHCANDUcOIUwD8WC6Rd0=";
   };
 
@@ -37,6 +38,10 @@ stdenv.mkDerivation rec {
     socat
   ]
   ++ lib.optionals pulseaudioSupport [ libpulseaudio ];
+
+  preConfigure = ''
+    sed -i 's|git_describe(GIT_TAG)|set(GIT_TAG "${rev}")|' CMakeLists.txt
+  '';
 
   doCheck = true;
 
