@@ -42,6 +42,7 @@ stdenv.mkDerivation rec {
     libExt = if stdenv.hostPlatform.isDarwin then "dylib" else "so";
   in [
     "-DCMAKE_CXX_FLAGS=-std=c++14"
+    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     "-DBLAS_FOUND:BOOL=TRUE"
     "-DBLAS_LIBRARIES:STRING=${blas}/lib/libblas.${libExt}"
     "-DLAPACK_FOUND:BOOL=TRUE"
