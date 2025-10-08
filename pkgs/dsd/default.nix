@@ -35,6 +35,7 @@ stdenv.mkDerivation {
 
   cmakeFlags = [
     "-DCMAKE_CXX_FLAGS=-std=c++14"
+    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
   ];
 
   doCheck = false;
