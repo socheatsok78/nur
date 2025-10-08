@@ -18,7 +18,7 @@
     {
       # Define the overlay and packages for each supported system
       overlays = {
-        default = overlays;
+        default = final: prev: overlays final prev;
       };
 
       # Packages defined for each supported system
