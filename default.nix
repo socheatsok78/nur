@@ -29,6 +29,7 @@ rec {
     inherit itpp libpulseaudio;
     pulseaudioSupport = true;
   };
+  mbelib = pkgs.callPackage ./pkgs/mbelib { };
   mbelib-lwvmobile = pkgs.callPackage ./pkgs/mbelib-lwvmobile { };
   pulseaudio = pkgs.callPackage ./pkgs/pulseaudio { };
   pulseaudioFull = pulseaudio.override {
@@ -43,7 +44,7 @@ rec {
   # The packages below has been deprecated from upstream nixpkgs
   # so we keep them here for legacy purpose.
   dsd = pkgs.callPackage ./pkgs/dsd {
-    inherit itpp;
+    inherit itpp mbelib;
   };
   itpp = pkgs.callPackage ./pkgs/itpp { };
 }
