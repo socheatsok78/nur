@@ -20,12 +20,12 @@ stdenv.mkDerivation rec {
   pversion = "2025-10-06";
   name = "${pname}-${pversion}";
 
-  rev = "75a15c7a9e650fd18a76e9824c941f967ff2063e";
+  rev = "2f2aad6c0e62ba2bcfbef4ffbf9b69ccd77403e8";
   src = fetchFromGitHub {
     owner = "lwvmobile";
     repo = "m17-fme";
     rev = rev;
-    sha256 = "sha256-3BswF21uCzii92ASKEydieTIHCANDUcOIUwD8WC6Rd0=";
+    sha256 = "sha256-CGXftubola647LL4Njc9nDi0hw7Qc8QnXNnkaADBWAI=";
   };
 
   nativeBuildInputs = [ cmake ];
