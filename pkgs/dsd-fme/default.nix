@@ -24,12 +24,12 @@ stdenv.mkDerivation rec {
   pversion = "2025-09-22";
   name = "${pname}-${pversion}";
 
-  rev = "f3b89f1c51bdfec5482b320788ee3dad3ee4267a";
+  rev = "748bb5b1910188407a1004f2c607b536428701c9";
   src = fetchFromGitHub {
     owner = "lwvmobile";
     repo = "dsd-fme";
     rev = rev;
-    sha256 = "sha256-nTOH9zUD7Y55arGj919g905zZ7RWTSb991IsfQTRXwk=";
+    sha256 = "sha256-sBO6t/ad6ebTmOPywfMFISe51vPvsPUrSFB8XyKZ+j8=";
   };
 
   patches = [
