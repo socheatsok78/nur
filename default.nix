@@ -17,20 +17,19 @@ rec {
 
   # Packages
   certstrap = pkgs.callPackage ./pkgs/certstrap { };
-  dsd = pkgs.callPackage ./pkgs/dsd {
-    inherit itpp;
-  };
   dsd-fme = pkgs.callPackage ./pkgs/dsd-fme {
     inherit itpp libpulseaudio mbelib-lwvmobile;
     pulseaudioSupport = true;
   };
-  itpp = pkgs.callPackage ./pkgs/itpp { };
+  fosrl-installer = pkgs.callPackage ./pkgs/fosrl-installer { };
+  libpulseaudio = pulseaudio.override {
+    libOnly = true;
+  };
   m17-fme = pkgs.callPackage ./pkgs/m17-fme {
     inherit itpp libpulseaudio;
     pulseaudioSupport = true;
   };
   mbelib-lwvmobile = pkgs.callPackage ./pkgs/mbelib-lwvmobile { };
-  fosrl-installer = pkgs.callPackage ./pkgs/fosrl-installer { };
   pulseaudio = pkgs.callPackage ./pkgs/pulseaudio { };
   pulseaudioFull = pulseaudio.override {
     jackaudioSupport = true;
@@ -40,7 +39,11 @@ rec {
     remoteControlSupport = !pkgs.stdenv.hostPlatform.isDarwin;
     zeroconfSupport = true;
   };
-  libpulseaudio = pulseaudio.override {
-    libOnly = true;
+
+  # The packages below has been deprecated from upstream nixpkgs
+  # so we keep them here for legacy purpose.
+  dsd = pkgs.callPackage ./pkgs/dsd {
+    inherit itpp;
   };
+  itpp = pkgs.callPackage ./pkgs/itpp { };
 }
