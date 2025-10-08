@@ -39,14 +39,13 @@ stdenv.mkDerivation rec {
   '';
 
   cmakeFlags = let 
-    libblasSharedObject = if  stdenv.hostPlatform.isDarwin then "libblas.dylib" else "libblas.so";
-    liblapackSharedObject = if  stdenv.hostPlatform.isDarwin then "liblapack.dylib" else "liblapack.so";
+    libExt = if stdenv.hostPlatform.isDarwin then "dylib" else "so";
   in [
     "-DCMAKE_CXX_FLAGS=-std=c++14"
     "-DBLAS_FOUND:BOOL=TRUE"
-    "-DBLAS_LIBRARIES:STRING=${blas}/lib/${libblasSharedObject}"
+    "-DBLAS_LIBRARIES:STRING=${blas}/lib/libblas.${libExt}"
     "-DLAPACK_FOUND:BOOL=TRUE"
-    "-DLAPACK_LIBRARIES:STRING=${liblapack}/lib/${liblapackSharedObject}"
+    "-DLAPACK_LIBRARIES:STRING=${liblapack}/lib/liblapack.${libExt}"
     # "-DGTEST_DIR:PATH=${gtest.src}/googletest"
   ];
 
