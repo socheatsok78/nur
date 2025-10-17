@@ -6,17 +6,17 @@
 
 buildGo124Module rec {
   pname = "fosrl-installer";
-  version = "1.9.3";
+  version = "1.11.0";
 
   src = fetchFromGitHub {
     owner = "fosrl";
     repo = "pangolin";
     rev = version;
-    hash = "sha256-E0useOuRq9YVWPC8JvsB1u29hqBmKqnhIx1u3KvjqBo=";
+    hash = "sha256-wCD2RqkIlPG/YaUhTccJ0Rr4VH280MuBi/KW1l+4v3c=";
   };
 
   modRoot = "install";
-  vendorHash = "sha256-ib38CI4V1sg54hwQ+a19ykZoZKKj0zRn9Rm7nxsCfnI=";
+  vendorHash = "sha256-5m+ep9ArMli5Hc6zAltN0NjUsaphFMnpbCDVi5rAOy4=";
 
   doCheck = false;
 
