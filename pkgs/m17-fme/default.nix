@@ -40,7 +40,7 @@ stdenv.mkDerivation rec {
   ++ lib.optionals pulseaudioSupport [ libpulseaudio ];
 
   preConfigure = ''
-    sed -i 's|git_describe(GIT_TAG)|set(GIT_TAG "${rev}")|' CMakeLists.txt
+    sed -i 's|git_describe(GIT_TAG)|set(GIT_TAG "${pversion} (${rev})")|' CMakeLists.txt
   '';
 
   doCheck = true;
