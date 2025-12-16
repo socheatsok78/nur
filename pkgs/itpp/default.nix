@@ -3,7 +3,7 @@
   stdenv,
   fetchurl,
   cmake,
-  # gtest,
+  gtest,
   blas,
   fftw,
   liblapack,
@@ -47,14 +47,14 @@ stdenv.mkDerivation rec {
     "-DBLAS_LIBRARIES:STRING=${blas}/lib/libblas.${libExt}"
     "-DLAPACK_FOUND:BOOL=TRUE"
     "-DLAPACK_LIBRARIES:STRING=${liblapack}/lib/liblapack.${libExt}"
-    # "-DGTEST_DIR:PATH=${gtest.src}/googletest"
-  ];
+  ] 
+  ++ lib.optionals stdenv.hostPlatform.isLinux [ "-DGTEST_DIR:PATH=${gtest.src}/googletest" ];
 
   doCheck = false;
 
-  # checkPhase = ''
-  #   ./gtests/itpp_gtests
-  # '';
+  checkPhase = lib.optionalString stdenv.hostPlatform.isLinux ''
+    ./gtests/itpp_gtests
+  '';
 
   meta = with lib; {
     description = "IT++ is a C++ library of mathematical, signal processing and communication classes and functions";
