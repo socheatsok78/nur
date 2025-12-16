@@ -19,17 +19,17 @@ jobs:
           - os: macos-15
             branch: nixpkgs-unstable
           - os: macos-15
-            branch: nixpkgs-25.05-darwin
+            branch: nixpkgs-25.11-darwin
           - os: macos-26
             branch: nixpkgs-unstable
           - os: macos-26
-            branch: nixpkgs-25.05-darwin
+            branch: nixpkgs-25.11-darwin
           - os: ubuntu-latest
             branch: nixpkgs-unstable
           - os: ubuntu-latest
             branch: nixos-unstable
           - os: ubuntu-latest
-            branch: nixos-25.05
+            branch: nixos-25.11
         # Set this to notify the global nur package registry that changes are
         # available.
         #
@@ -52,7 +52,7 @@ jobs:
         # nixPath:
         #   - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz
         #   - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-unstable.tar.gz
-        #   - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-25.05.tar.gz
+        #   - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-25.11.tar.gz
     runs-on: ${{ matrix.nixpkgs.os }}
     steps:
     - name: Checkout repository
