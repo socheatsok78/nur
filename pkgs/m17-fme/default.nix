@@ -17,7 +17,7 @@ assert pulseaudioSupport -> libpulseaudio != null;
 
 stdenv.mkDerivation rec {
   pname = "m17-fme";
-  pversion = "2025-11-11";
+  pversion = "2025-11-28";
   name = "${pname}-${pversion}";
 
   rev = "816930a4de9cf633b6a86d78ff77cb01060fc715";
