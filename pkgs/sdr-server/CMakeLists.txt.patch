@@ -1,0 +1,33 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d0a2160..a2e15a3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -32,15 +32,6 @@ add_library(sdr_serverLib
+ 		${CMAKE_CURRENT_SOURCE_DIR}/src/sdr/hackrf_device.c
+ )
+ 
+-# at some point homebrew changed default location
+-# so all libraries need an explicit path
+-if (APPLE)
+-	include_directories("/opt/homebrew/include")
+-	include_directories("/usr/local/include")
+-	link_directories("/opt/homebrew/lib")
+-	link_directories("/usr/local/lib")
+-endif ()
+-
+ 
+ find_package(PkgConfig REQUIRED)
+ 
+@@ -50,12 +41,10 @@ include_directories(${PC_RTLSDR_INCLUDE_DIRS})
+ pkg_check_modules(PC_LIBAIRSPY REQUIRED libairspy)
+ include_directories(${PC_LIBAIRSPY_INCLUDE_DIRS})
+ # libairspy pkg config was invalid at some point
+-include_directories("/usr/include/libairspy/")
+ 
+ pkg_check_modules(PC_LIBHACKRF REQUIRED libhackrf)
+ include_directories(${PC_LIBHACKRF_INCLUDE_DIRS})
+ # libhackrf pkg config was invalid at some point
+-include_directories("/usr/include/libhackrf/")
+ 
+ pkg_check_modules(PC_ZLIB REQUIRED zlib)
+ include_directories(${PC_ZLIB_INCLUDE_DIRS})

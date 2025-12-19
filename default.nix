@@ -40,6 +40,7 @@ rec {
     remoteControlSupport = !pkgs.stdenv.hostPlatform.isDarwin;
     zeroconfSupport = true;
   };
+  sdr-server = pkgs.callPackage ./pkgs/sdr-server {};
 
   # The packages below has been deprecated from upstream nixpkgs
   # so we keep them here for legacy purpose.
