@@ -28,12 +28,14 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-6KErGZ4C8ttaBdQsDDEJjr7dkKQAGQLgB+viQXEex70=";
   };
 
-  nativeBuildInputs = [ cmake ];
+  nativeBuildInputs = [
+    cmake
+    pkg-config
+  ];
   buildInputs = [
     libsndfile
     itpp
     ncurses.dev
-    pkg-config
     codec2
     socat
   ]

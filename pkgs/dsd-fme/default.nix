@@ -36,14 +36,16 @@ stdenv.mkDerivation rec {
     ./disable_oss_darwin.patch
   ];
 
-  nativeBuildInputs = [ cmake ];
+  nativeBuildInputs = [
+    cmake
+    pkg-config
+  ];
   buildInputs = [
     mbelib-lwvmobile
     libsndfile
     itpp
     rtl-sdr-osmocom
     ncurses.dev
-    pkg-config
     codec2
   ]
   ++ lib.optionals pulseaudioSupport [ libpulseaudio ]
