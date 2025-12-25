@@ -6,19 +6,28 @@
 
 buildGo124Module rec {
   pname = "fosrl-installer";
-  version = "1.11.0";
+  version = "1.14.1";
 
   src = fetchFromGitHub {
     owner = "fosrl";
     repo = "pangolin";
     rev = version;
-    hash = "sha256-wCD2RqkIlPG/YaUhTccJ0Rr4VH280MuBi/KW1l+4v3c=";
+    hash = "sha256-Lblxkldmg8MQsaP8ACnXjMUtJhEx7McWOqOegyAFi9Q=";
   };
 
   modRoot = "install";
-  vendorHash = "sha256-5m+ep9ArMli5Hc6zAltN0NjUsaphFMnpbCDVi5rAOy4=";
+  vendorHash = "sha256-/vJwa1qRDLV4sfNiCc7a7TICp8R9d3iLJFFm0lbqKKE=";
 
   doCheck = false;
+
+  GERBIL_VERSION = "1.3.0";
+  BADGER_VERSION = "v1.3.1";
+
+  preconfigurePhase = ''
+    substituteInPlace main.go --replace "config.PangolinVersion = \"replaceme\"" "config.PangolinVersion = \"${version}\""
+    substituteInPlace main.go --replace "config.GerbilVersion = \"replaceme\"" "config.GerbilVersion = \"${GERBIL_VERSION}\""
+    substituteInPlace main.go --replace "config.BadgerVersion = \"replaceme\"" "config.BadgerVersion = \"${BADGER_VERSION}\""
+  '';
 
   postInstall = ''
     mv $out/bin/installer $out/bin/${pname}
