@@ -18,7 +18,7 @@ rec {
   # Packages
   certstrap = pkgs.callPackage ./pkgs/certstrap { };
   dsd-fme = pkgs.callPackage ./pkgs/dsd-fme {
-    inherit itpp libpulseaudio mbelib-lwvmobile;
+    inherit libpulseaudio mbelib-lwvmobile;
     pulseaudioSupport = true;
   };
   fosrl-installer = pkgs.callPackage ./pkgs/fosrl-installer { };
