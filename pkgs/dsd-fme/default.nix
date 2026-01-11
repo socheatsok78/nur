@@ -5,7 +5,6 @@
   fetchFromGitHub,
   mbelib-lwvmobile,
   libsndfile,
-  itpp,
   ncurses,
   rtl-sdr-osmocom,
   codec2,
@@ -21,20 +20,16 @@ assert portaudioSupport -> portaudio != null;
 
 stdenv.mkDerivation rec {
   pname = "dsd-fme";
-  pversion = "2025-12-15";
+  pversion = "2026-01-06";
   name = "${pname}-${pversion}";
 
-  rev = "abf28593b1b1802262128683d536aa2938285ba6";
+  rev = "99f422898a5fda796d7563db70db8e57ca2e37eb";
   src = fetchFromGitHub {
     owner = "lwvmobile";
     repo = "dsd-fme";
     rev = rev;
-    sha256 = "sha256-EA9xm2Y//eoxE1kvrhelgGV0I7Y60QlWrPEaIV8lYNw=";
+    sha256 = "sha256-3YLY481ftwQn9BqKy26uml5pSxOAhpdzlTFuEUKT8hs=";
   };
-
-  patches = [
-    ./disable_oss_darwin.patch
-  ];
 
   nativeBuildInputs = [
     cmake
@@ -43,7 +38,6 @@ stdenv.mkDerivation rec {
   buildInputs = [
     mbelib-lwvmobile
     libsndfile
-    itpp
     rtl-sdr-osmocom
     ncurses.dev
     codec2
