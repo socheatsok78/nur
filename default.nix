@@ -41,11 +41,4 @@ rec {
     zeroconfSupport = true;
   };
   sdr-server = pkgs.callPackage ./pkgs/sdr-server {};
-
-  # The packages below has been deprecated from upstream nixpkgs
-  # so we keep them here for legacy purpose.
-  dsd = pkgs.callPackage ./pkgs/dsd {
-    inherit itpp mbelib;
-  };
-  itpp = pkgs.callPackage ./pkgs/itpp { };
 }
