@@ -26,7 +26,7 @@ rec {
     libOnly = true;
   };
   m17-fme = pkgs.callPackage ./pkgs/m17-fme {
-    inherit itpp libpulseaudio;
+    inherit libpulseaudio;
     pulseaudioSupport = true;
   };
   mbelib = pkgs.callPackage ./pkgs/mbelib { };

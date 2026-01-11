@@ -4,7 +4,6 @@
   cmake,
   fetchFromGitHub,
   libsndfile,
-  itpp,
   ncurses,
   socat,
   codec2,
@@ -34,7 +33,6 @@ stdenv.mkDerivation rec {
   ];
   buildInputs = [
     libsndfile
-    itpp
     ncurses.dev
     codec2
     socat
