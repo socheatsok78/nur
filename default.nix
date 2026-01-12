@@ -40,5 +40,5 @@ rec {
     remoteControlSupport = !pkgs.stdenv.hostPlatform.isDarwin;
     zeroconfSupport = true;
   };
-  sdr-server = pkgs.callPackage ./pkgs/sdr-server {};
+  sdr-server = pkgs.callPackage ./pkgs/sdr-server { };
 }

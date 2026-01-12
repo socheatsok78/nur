@@ -46,16 +46,18 @@ stdenv.mkDerivation rec {
     systemd
   ];
 
-  preConfigure = let 
-    libraryExtension = stdenv.hostPlatform.extensions.sharedLibrary;
-  in ''
-    substituteInPlace CMakeLists.txt --replace /usr/bin ${placeholder "out"}/bin
-    substituteInPlace CMakeLists.txt --replace /etc/sdr-server ${placeholder "out"}/etc/sdr-server
-    substituteInPlace CMakeLists.txt --replace /lib/systemd/system/ ${placeholder "out"}/lib/systemd/user/
-    substituteInPlace src/sdr/airspy_lib.c --replace "dlopen(\"libairspy${libraryExtension}\"," "dlopen(\"${airspy}/lib/libairspy${libraryExtension}\","
-    substituteInPlace src/sdr/hackrf_lib.c --replace "dlopen(\"libhackrf${libraryExtension}\"," "dlopen(\"${hackrf}/lib/libhackrf${libraryExtension}\","
-    substituteInPlace src/sdr/rtlsdr_lib.c --replace "dlopen(\"librtlsdr${libraryExtension}\"," "dlopen(\"${rtl-sdr-osmocom}/lib/librtlsdr${libraryExtension}\","
-  '';
+  preConfigure =
+    let
+      libraryExtension = stdenv.hostPlatform.extensions.sharedLibrary;
+    in
+    ''
+      substituteInPlace CMakeLists.txt --replace /usr/bin ${placeholder "out"}/bin
+      substituteInPlace CMakeLists.txt --replace /etc/sdr-server ${placeholder "out"}/etc/sdr-server
+      substituteInPlace CMakeLists.txt --replace /lib/systemd/system/ ${placeholder "out"}/lib/systemd/user/
+      substituteInPlace src/sdr/airspy_lib.c --replace "dlopen(\"libairspy${libraryExtension}\"," "dlopen(\"${airspy}/lib/libairspy${libraryExtension}\","
+      substituteInPlace src/sdr/hackrf_lib.c --replace "dlopen(\"libhackrf${libraryExtension}\"," "dlopen(\"${hackrf}/lib/libhackrf${libraryExtension}\","
+      substituteInPlace src/sdr/rtlsdr_lib.c --replace "dlopen(\"librtlsdr${libraryExtension}\"," "dlopen(\"${rtl-sdr-osmocom}/lib/librtlsdr${libraryExtension}\","
+    '';
 
   cmakeFlags = [
     "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"

@@ -26,7 +26,8 @@
         system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system}
       );
       legacyPackages = forAllSupportedSystems (
-        system: import ./default.nix {
+        system:
+        import ./default.nix {
           pkgs = import nixpkgs { inherit system; };
         }
       );

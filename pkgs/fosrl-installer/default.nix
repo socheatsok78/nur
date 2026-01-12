@@ -30,6 +30,6 @@ buildGo124Module rec {
     changelog = "https://github.com/fosrl/pangolin/releases/tag/${version}";
     license = licenses.agpl3Only;
     mainProgram = "fosrl-installer";
-    maintainers = [];
+    maintainers = [ ];
   };
 }
