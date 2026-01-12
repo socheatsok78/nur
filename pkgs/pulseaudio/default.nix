@@ -20,6 +20,7 @@
   sbc,
   bluez5,
   udev,
+  udevCheckHook,
   openssl,
   orc,
   fftwFloat,
@@ -110,8 +111,9 @@ stdenv.mkDerivation rec {
     perlPackages.perl
     perlPackages.XMLParser
     m4
+    glib
+    udevCheckHook
   ]
-  ++ lib.optionals (!stdenv.hostPlatform.isDarwin) [ glib ]
   # gstreamer plugin discovery requires wrapping
   ++ lib.optional (bluetoothSupport && advancedBluetoothCodecs) wrapGAppsHook3;
 
@@ -129,7 +131,6 @@ stdenv.mkDerivation rec {
     speexdsp
     fftwFloat
     check
-    glib
   ]
   ++ lib.optionals (!stdenv.hostPlatform.isDarwin) [
     dbus
