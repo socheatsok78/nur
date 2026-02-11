@@ -21,6 +21,9 @@
         default = final: prev: overlays final prev;
       };
 
+      # Checks for each supported system (e.g., to ensure packages build correctly)
+      checks = forAllSupportedSystems (system: self.packages.${system});
+
       # Packages defined for each supported system
       packages = forAllSupportedSystems (
         system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system}
