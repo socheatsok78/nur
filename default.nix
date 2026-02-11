@@ -21,7 +21,6 @@ rec {
     inherit libpulseaudio mbelib-lwvmobile;
     pulseaudioSupport = true;
   };
-  fosrl-installer = pkgs.callPackage ./pkgs/fosrl-installer { };
   libpulseaudio = pulseaudio.override {
     libOnly = true;
   };
