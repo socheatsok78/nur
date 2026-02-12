@@ -18,5 +18,5 @@
 
   # Add your overlays here
   #
-  # my-overlay = import ./my-overlay;
+  inetutils = import ./inetutils-overlay.nix;
 }
