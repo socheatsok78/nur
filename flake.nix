@@ -11,20 +11,11 @@
         "x86_64-linux"
       ];
       forAllSupportedSystems = nixpkgs.lib.genAttrs supportedSystems;
-      # forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
-
-      overlays = import ./overlay.nix; # nixpkgs overlays
+      forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
     in
     {
-      # Define the overlay and packages for each supported system
-      overlays = {
-        default = final: prev: overlays final prev;
-      };
-
-      # Checks for each supported system (e.g., to ensure packages build correctly)
       checks = forAllSupportedSystems (system: self.packages.${system});
-
-      # Packages defined for each supported system
+      overlays = import ./overlays;
       packages = forAllSupportedSystems (
         system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system}
       );
