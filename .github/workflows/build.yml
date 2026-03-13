@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main
-      - master
+      - unstable
+      - release-25.11
   schedule:
     # rebuild everyday at 2:51
     # TIP: Choose a random time here so not all repositories are build at once:
