@@ -15,15 +15,15 @@
     in
     {
       checks = forAllSupportedSystems (system: self.packages.${system});
-      overlays = import ./overlays;
-      packages = forAllSupportedSystems (
-        system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system}
-      );
       legacyPackages = forAllSupportedSystems (
         system:
         import ./default.nix {
           pkgs = import nixpkgs { inherit system; };
         }
+      );
+      overlays = import ./overlays;
+      packages = forAllSupportedSystems (
+        system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system}
       );
     };
 }
