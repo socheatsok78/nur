@@ -17,6 +17,7 @@ concurrency:
 jobs:
   tests:
     strategy:
+      fail-fast: false
       matrix:
         nixpkgs:
           - os: macos-15
