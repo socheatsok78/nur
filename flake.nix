@@ -25,5 +25,7 @@
       packages = forAllSupportedSystems (
         system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system}
       );
+      # nix fmt (experimental)
+      formatter = forAllSupportedSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
     };
 }
