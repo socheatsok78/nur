@@ -24,16 +24,22 @@ jobs:
             branch: nixpkgs-unstable
           - os: macos-15
             branch: nixpkgs-25.11-darwin
+          - os: macos-15
+            branch: nixpkgs-26.05-darwin
           - os: macos-26
             branch: nixpkgs-unstable
           - os: macos-26
             branch: nixpkgs-25.11-darwin
+          - os: macos-26
+            branch: nixpkgs-26.05-darwin
           - os: ubuntu-latest
             branch: nixpkgs-unstable
           - os: ubuntu-latest
             branch: nixos-unstable
           - os: ubuntu-latest
             branch: nixos-25.11
+          - os: ubuntu-latest
+            branch: nixos-26.05
         # Set this to notify the global nur package registry that changes are
         # available.
         #
