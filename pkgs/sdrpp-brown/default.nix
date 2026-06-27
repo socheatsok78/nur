@@ -5,6 +5,7 @@
   cmake,
   pkg-config,
   libx11,
+  libpulseaudio,
   glfw,
   glew,
   fftwFloat,
@@ -139,7 +140,10 @@ stdenv.mkDerivation (finalAttrs: {
     zstd
     fftw
   ]
-  ++ lib.optional stdenv.hostPlatform.isLinux libx11
+  ++ lib.optionals stdenv.hostPlatform.isLinux [
+    libx11
+    libpulseaudio
+  ]
   ++ lib.optional airspy_source airspy
   ++ lib.optional airspyhf_source airspyhf
   ++ lib.optional bladerf_source libbladeRF
