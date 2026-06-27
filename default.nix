@@ -40,9 +40,7 @@ rec {
     zeroconfSupport = true;
   };
   sdr-server = pkgs.callPackage ./pkgs/sdr-server { };
-  sdrpp-brown = pkgs.callPackage ./pkgs/sdrpp-brown {
-    inherit mbelib-lwvmobile itpp;
-  };
+  sdrpp-brown = pkgs.callPackage ./pkgs/sdrpp-brown { };
 
   # The packages below has been deprecated from upstream nixpkgs
   # so we keep them here for legacy purpose.

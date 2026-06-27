@@ -77,10 +77,8 @@
   kg_sstv_decoder ? false,
   m17_decoder ? false,
   codec2,
-  ch_extravhf_decoder ? false,
-  ch_tetra_demodulator ? false,
-  itpp,
-  mbelib-lwvmobile,
+  ch_extravhf_decoder ? true,
+  ch_tetra_demodulator ? true,
   ft8_decoder ? false,
   dsdcc_decoder ? false,
   meteor_demodulator ? true,
@@ -164,13 +162,11 @@ stdenv.mkDerivation (finalAttrs: {
   ]
   ++ lib.optional (audio_source || audio_sink) rtaudio
   ++ lib.optional portaudio_sink portaudio
-  ++ lib.optional (dab_decoder || m17_decoder) codec2
-  ++ lib.optionals (ch_tetra_demodulator || ch_extravhf_decoder) [
-    itpp
-    mbelib-lwvmobile
-  ];
+  ++ lib.optional (dab_decoder || m17_decoder) codec2;
 
   cmakeFlags = [
+    "-DCMAKE_CXX_FLAGS=-std=c++14"
+
     # Sources
     (lib.cmakeBool "OPT_BUILD_AIRSPYHF_SOURCE" airspyhf_source)
     (lib.cmakeBool "OPT_BUILD_AIRSPY_SOURCE" airspy_source)
@@ -246,6 +242,7 @@ stdenv.mkDerivation (finalAttrs: {
     (lib.cmakeBool "COPY_MSVC_REDISTRIBUTABLES" false)
   ];
 
+  CMAKE_TLS_VERIFY = 0;
   env.NIX_CFLAGS_COMPILE = "-fpermissive";
 
   hardeningDisable = lib.optional stdenv.cc.isClang "format";
