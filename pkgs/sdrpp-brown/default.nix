@@ -12,6 +12,7 @@
   volk,
   zstd,
   fftw,
+  blas,
 
   # Sources
   airspy_source ? true,
@@ -141,6 +142,7 @@ stdenv.mkDerivation (finalAttrs: {
     fftw
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [
+    blas
     libx11
     libpulseaudio
   ]
