@@ -40,4 +40,5 @@ rec {
     zeroconfSupport = true;
   };
   sdr-server = pkgs.callPackage ./pkgs/sdr-server { };
+  sdrpp-brown = pkgs.callPackage ./pkgs/sdrpp-brown { };
 }
