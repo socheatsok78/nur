@@ -79,8 +79,9 @@
   kg_sstv_decoder ? false,
   m17_decoder ? false,
   codec2,
-  ch_extravhf_decoder ? false,
-  ch_tetra_demodulator ? false,
+  # The CH decoders are not supported on Linux due to missing dependencies.
+  ch_extravhf_decoder ? !stdenv.hostPlatform.isLinux,
+  ch_tetra_demodulator ? !stdenv.hostPlatform.isLinux,
   ft8_decoder ? false,
   dsdcc_decoder ? false,
   meteor_demodulator ? true,
