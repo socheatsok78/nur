@@ -116,9 +116,9 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-Iio3A5i8HQu0da/iA1d2MgYJyYteDn9Lf4+/OQB+Tp4=";
   };
 
-  # patches = [
-  #   ./0001-Allow-management-of-resources-and-modules-paths.patch
-  # ];
+  patches = [
+    ./0001-Allow-management-of-resources-and-modules-paths.patch
+  ];
 
   postPatch = ''
     substituteInPlace decoder_modules/m17_decoder/src/m17dsp.h \

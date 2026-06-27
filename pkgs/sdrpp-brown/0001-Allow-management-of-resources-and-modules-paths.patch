@@ -1,58 +1,57 @@
-From 746644667cff9490d0f9a5f4ab70c76137dc80a2 Mon Sep 17 00:00:00 2001
-From: Francesco Zanini <francesco@zanini.me>
-Date: Mon, 6 Oct 2025 16:19:55 +0200
-Subject: [PATCH] Allow management of resources and modules paths
+From 0298fcf59ec2ac833d1b45460a8ee2ccc892873d Mon Sep 17 00:00:00 2001
+From: Socheat <github@socheat.dev>
+Date: Sat, 27 Jun 2026 20:16:51 +0700
+Subject: [PATCH 1/4] Refactor directory paths for module and resources
 
-SDR++ uses the config file to determine the location of modules and
-resources to load. While this is mostly static in other distributions,
-in Nix it changes very often.
-
-This commit adds some functionality to the config manager to replace
-`@prefix@` in the values of the keys `modulesDirectory` and
-`resourcesDirectory` to a dynamic path. On save, the change is reverted.
-
-The prefix path used is either the installation directory, or the
-content of the `SDRPP_PREFIX` environment variable, if present.
-
-NOTE: Paths are transformed using a *temporary copy* of the config. This fixes
-the issue described here https://github.com/NixOS/nixpkgs/issues/467610.
 ---
- core/src/config.cpp | 34 ++++++++++++++++++++++++++++++++--
- core/src/config.h   |  4 +++-
- core/src/core.cpp   | 15 ++-------------
- 3 files changed, 37 insertions(+), 16 deletions(-)
+ core/src/core.cpp | 15 ++-------------
+ 1 file changed, 2 insertions(+), 13 deletions(-)
+
+diff --git a/core/src/core.cpp b/core/src/core.cpp
+index 8984191c2..d235f421a 100644
+--- a/core/src/core.cpp
++++ b/core/src/core.cpp
+@@ -637,19 +637,8 @@ int sdrpp_main(int argc, char* argv[]) {
+ #endif
+     defConfig["transcieverLayout"] = 0;
+ 
+-#if defined(_WIN32)
+-    defConfig["modulesDirectory"] = "./modules";
+-    defConfig["resourcesDirectory"] = "./res";
+-#elif defined(IS_MACOS_BUNDLE)
+-    defConfig["modulesDirectory"] = "../Plugins";
+-    defConfig["resourcesDirectory"] = "../Resources";
+-#elif defined(__ANDROID__)
+-    defConfig["modulesDirectory"] = root + "/modules";
+-    defConfig["resourcesDirectory"] = root + "/res";
+-#else
+-    defConfig["modulesDirectory"] = INSTALL_PREFIX "/lib/sdrpp/plugins";
+-    defConfig["resourcesDirectory"] = INSTALL_PREFIX "/share/sdrpp";
+-#endif
++    defConfig["modulesDirectory"] = "@prefix@/lib/sdrpp/plugins";
++    defConfig["resourcesDirectory"] = "@prefix@/share/sdrpp";
+ 
+     // Load config
+     std::error_code ec;
+
+From 25987c2a8e1c316a5d859fd1fff053a9682a77b7 Mon Sep 17 00:00:00 2001
+From: Socheat <github@socheat.dev>
+Date: Sat, 27 Jun 2026 20:18:05 +0700
+Subject: [PATCH 2/4] Implement transformPaths method in ConfigManager
+
+Added a method to transform directory paths in configuration.
+---
+ core/src/config.cpp | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
 diff --git a/core/src/config.cpp b/core/src/config.cpp
-index 6de1888f..dfde5628 100644
+index 4d361ec2a..48ba5a018 100644
 --- a/core/src/config.cpp
 +++ b/core/src/config.cpp
-@@ -41,13 +41,18 @@ void ConfigManager::load(json def, bool lock) {
-         conf = def;
-         save(false);
-     }
-+
-+    transformPaths(conf, true);
-+
-     if (lock) { mtx.unlock(); }
- }
- 
- void ConfigManager::save(bool lock) {
-     if (lock) { mtx.lock(); }
-     std::ofstream file(path.c_str());
--    file << conf.dump(4);
-+    auto tmp_conf = conf;
-+    transformPaths(tmp_conf, false);
-+    file << tmp_conf.dump(4);
-     file.close();
-     if (lock) { mtx.unlock(); }
- }
-@@ -98,4 +103,29 @@ void ConfigManager::autoSaveWorker() {
-             termCond.wait_for(lock, std::chrono::milliseconds(1000), [this]() { return termFlag; });
+@@ -108,3 +108,28 @@ void ConfigManager::autoSaveWorker() {
          }
      }
--}
-\ No newline at end of file
-+}
+ }
 +
 +void ConfigManager::transformPaths(json& conf, bool expand) {
 +    const char* env_prefix = std::getenv("SDRPP_PREFIX");
@@ -78,44 +77,61 @@ index 6de1888f..dfde5628 100644
 +        }
 +    }
 +}
+
+From 3766dcc074de1583e7875eb1c406250c48fcf9a3 Mon Sep 17 00:00:00 2001
+From: Socheat <github@socheat.dev>
+Date: Sat, 27 Jun 2026 20:19:02 +0700
+Subject: [PATCH 3/4] Add transformPaths method declaration to config.h
+
+---
+ core/src/config.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
 diff --git a/core/src/config.h b/core/src/config.h
-index fbbdeb4a..f9deef01 100644
+index fbbdeb4a5..76dd86f98 100644
 --- a/core/src/config.h
 +++ b/core/src/config.h
-@@ -33,4 +33,6 @@ private:
+@@ -33,4 +33,5 @@ class ConfigManager {
      std::mutex termMtx;
      std::condition_variable termCond;
      volatile bool termFlag = false;
 -};
 \ No newline at end of file
-+
 +    static void transformPaths(json& conf, bool expand);
 +};
-diff --git a/core/src/core.cpp b/core/src/core.cpp
-index 37358062..f1b5396c 100644
---- a/core/src/core.cpp
-+++ b/core/src/core.cpp
-@@ -267,19 +267,8 @@ int sdrpp_main(int argc, char* argv[]) {
-     defConfig["lockMenuOrder"] = false;
- #endif
+
+From 1e2490ad8215586c9be880ef446b102ec97d21a0 Mon Sep 17 00:00:00 2001
+From: Socheat <github@socheat.dev>
+Date: Sat, 27 Jun 2026 20:20:22 +0700
+Subject: [PATCH 4/4] Transform paths in config before saving
+
+Transform paths in configuration before saving.
+---
+ core/src/config.cpp | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/core/src/config.cpp b/core/src/config.cpp
+index 48ba5a018..add02b69a 100644
+--- a/core/src/config.cpp
++++ b/core/src/config.cpp
+@@ -46,6 +46,9 @@ void ConfigManager::load(json def, bool lock) {
+         conf = def;
+         save(false);
+     }
++
++    transformPaths(conf, true);
++
+     if (lock) { mtx.unlock(); }
+ }
  
--#if defined(_WIN32)
--    defConfig["modulesDirectory"] = "./modules";
--    defConfig["resourcesDirectory"] = "./res";
--#elif defined(IS_MACOS_BUNDLE)
--    defConfig["modulesDirectory"] = "../Plugins";
--    defConfig["resourcesDirectory"] = "../Resources";
--#elif defined(__ANDROID__)
--    defConfig["modulesDirectory"] = root + "/modules";
--    defConfig["resourcesDirectory"] = root + "/res";
--#else
--    defConfig["modulesDirectory"] = INSTALL_PREFIX "/lib/sdrpp/plugins";
--    defConfig["resourcesDirectory"] = INSTALL_PREFIX "/share/sdrpp";
--#endif
-+    defConfig["modulesDirectory"] = "@prefix@/lib/sdrpp/plugins";
-+    defConfig["resourcesDirectory"] = "@prefix@/share/sdrpp";
- 
-     // Load config
-     flog::info("Loading config");
--- 
-2.52.0
+@@ -54,7 +57,9 @@ void ConfigManager::save(bool lock) {
+     auto justpath = wstr::str2wstr(path);
+     auto newpath = wstr::str2wstr(path + ".new");
+     std::ofstream file(newpath);
+-    file << conf.dump(4);
++    auto tmp_conf = conf;
++    transformPaths(tmp_conf, false);
++    file << tmp_conf.dump(4);
+     file.close();
+     std::filesystem::rename(newpath, justpath);
+     if (lock) { mtx.unlock(); }
