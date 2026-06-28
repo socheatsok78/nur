@@ -141,11 +141,11 @@ stdenv.mkDerivation (finalAttrs: {
     volk
     zstd
     fftw
+    libpulseaudio
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [
     blas
     libx11
-    libpulseaudio
   ]
   ++ lib.optional airspy_source airspy
   ++ lib.optional airspyhf_source airspyhf
