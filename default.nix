@@ -43,6 +43,44 @@ rec {
   sdrpp-brown = pkgs.callPackage ./pkgs/sdrpp-brown {
     inherit libpulseaudio;
   };
+  sdrpp-brown-server = sdrpp-brown.override {
+    # Sinks
+    android_audio_sink = false;
+    audio_sink = false;
+    network_sink = false;
+    mpeg_adts_sink = false;
+    portaudio_sink = false;
+    legacy_portaudio_sink = false;
+
+    # Decoders
+    atv_decoder = false;
+    dab_decoder = false;
+    falcon9_decoder = false;
+    kg_sstv_decoder = false;
+    m17_decoder = false;
+    ch_extravhf_decoder = false;
+    ch_tetra_demodulator = false;
+    ft8_decoder = false;
+    dsdcc_decoder = false;
+    meteor_demodulator = false;
+    pager_decoder = false;
+    radio = false;
+    ryfi_decoder = false;
+    vor_receiver = false;
+    weather_sat_decoder = false;
+
+    # Misc
+    discord_presence = false;
+    frequency_manager = false;
+    iq_exporter = false;
+    recorder = false;
+    rigctl_client = false;
+    rigctl_server = false;
+    tci_server = false;
+    scanner = false;
+    scheduler = false;
+    noise_reduction_logmmse = false;
+  };
 
   # The packages below has been deprecated from upstream nixpkgs
   # so we keep them here for legacy purpose.
