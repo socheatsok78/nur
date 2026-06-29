@@ -30,7 +30,7 @@
   hackrf_source ? true,
   hackrf,
   harogic_source ? false,
-  hermes_source ? true,
+  hermes_source ? false,
   hydrasdr_source ? false,
   kcsdr_source ? false,
   limesdr_source ? true,
@@ -56,7 +56,7 @@
   spectran_source ? false,
   spectran_http_source ? true,
   spyserver_source ? true,
-  hl2_source ? true,
+  hl2_source ? false,
   usrp_source ? false,
   uhd,
   boost,
@@ -119,6 +119,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   patches = [
     ./0001-Allow-management-of-resources-and-modules-paths.patch
+    ./0002-audio-sinks-patch.patch
   ];
 
   postPatch = ''
