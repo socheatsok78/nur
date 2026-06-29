@@ -14,6 +14,9 @@
   fftw,
   blas,
 
+  # Backend
+  glfw_backend ? true,
+
   # Sources
   airspy_source ? true,
   airspy,
@@ -174,6 +177,8 @@ stdenv.mkDerivation (finalAttrs: {
 
   cmakeFlags = [
     "-DCMAKE_CXX_FLAGS=-std=c++14"
+
+    (lib.cmakeBool "OPT_BACKEND_GLFW" glfw_backend)
 
     # Sources
     (lib.cmakeBool "OPT_BUILD_AIRSPYHF_SOURCE" airspyhf_source)

@@ -44,6 +44,9 @@ rec {
     inherit libpulseaudio;
   };
   sdrpp-brown-server = sdrpp-brown.override {
+    # Backend
+    glfw_backend = false;
+
     # Sinks
     android_audio_sink = false;
     audio_sink = false;
