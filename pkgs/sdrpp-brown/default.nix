@@ -80,8 +80,8 @@
   m17_decoder ? true,
   codec2,
   # The CH decoders are not supported on Linux due to missing dependencies.
-  ch_extravhf_decoder ? !stdenv.hostPlatform.isLinux,
-  ch_tetra_demodulator ? !stdenv.hostPlatform.isLinux,
+  ch_extravhf_decoder ? false,
+  ch_tetra_demodulator ? false,
   ft8_decoder ? true,
   dsdcc_decoder ? false,
   meteor_demodulator ? true,
