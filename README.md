@@ -59,3 +59,7 @@ To use this repository as a flake, add the following to your `flake.nix`:
   };
 }
 ```
+
+## License
+
+This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
