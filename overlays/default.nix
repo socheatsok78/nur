@@ -16,6 +16,16 @@ in
         builtins.filter (n: !isReserved n) (builtins.attrNames nurAttrs)
       )
     );
+  unfree =
+    final: prev:
+    let
+      unfree = import ./unfree.nix { pkgs = prev; };
+    in
+    builtins.listToAttrs (
+      map (n: nameValuePair n unfree.${n}) (
+        builtins.filter (n: !isReserved n) (builtins.attrNames unfree)
+      )
+    );
 
   # Add your overlays here
   #
