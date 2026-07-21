@@ -5,3 +5,5 @@ lock:
 	nix flake lock
 update:
 	nix flake update --commit-lock-file
+fmt:
+	nix fmt
