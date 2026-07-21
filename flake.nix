@@ -14,8 +14,8 @@
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
     in
     {
-      checks = forAllSupportedSystems (system: self.packages.${system});
-      legacyPackages = forAllSupportedSystems (
+      checks = forAllSupportedSystems (system: self.legacyPackages.${system});
+      legacyPackages = forAllSystems (
         system:
         import ./default.nix {
           pkgs = import nixpkgs { inherit system; };
