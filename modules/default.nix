@@ -1,5 +1,5 @@
 {
-  # Add your NixOS modules here
+  # Add your modules here
   #
   # my-module = ./my-module;
 }
