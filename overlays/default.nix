@@ -1,9 +1,17 @@
 let
-  isReserved = n: n == "lib" || n == "overlays" || n == "modules";
+  isReserved =
+    n:
+    n == "lib"
+    || n == "overlays"
+    || n == "nixosModules"
+    || n == "homeModules"
+    || n == "darwinModules"
+    || n == "flakeModules";
   nameValuePair = n: v: {
     name = n;
     value = v;
   };
+
 in
 {
   default =

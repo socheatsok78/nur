@@ -4,6 +4,6 @@
 # which really annoying for my personal use case.
 final: prev: {
   vault = prev.vault.overrideAttrs (attrs: {
-    meta.license = prev.lib.licenses.mpl-2.0;
+    meta.license = prev.lib.licenses.mpl-2 .0;
   });
 }
