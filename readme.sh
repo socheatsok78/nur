@@ -73,7 +73,7 @@ To use this repository as a flake, add the following to your `flake.nix`:
 $ nix flake show
 
 EOT
-nix flake show --quiet --no-pretty | nocolor
+nix flake show --quiet --no-pretty --all-systems | nocolor
 cat <<'EOT'
 ```
 

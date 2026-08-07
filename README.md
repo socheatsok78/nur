@@ -81,50 +81,50 @@ git+file:///Users/socheat/Workspace/github.com/socheatsok78/nur
 │   │   ├───sdrpp-brown: derivation 'sdrpp-brown-1.2.1-2026-05-08'
 │   │   └───sdrpp-brown-server: derivation 'sdrpp-brown-1.2.1-2026-05-08'
 │   ├───aarch64-linux
-│   │   ├───certstrap omitted (use '--all-systems' to show)
-│   │   ├───dsd-fme omitted (use '--all-systems' to show)
-│   │   ├───itpp omitted (use '--all-systems' to show)
-│   │   ├───libpulseaudio omitted (use '--all-systems' to show)
-│   │   ├───m17-fme omitted (use '--all-systems' to show)
-│   │   ├───mbelib omitted (use '--all-systems' to show)
-│   │   ├───mbelib-lwvmobile omitted (use '--all-systems' to show)
-│   │   ├───pulseaudio omitted (use '--all-systems' to show)
-│   │   ├───pulseaudioFull omitted (use '--all-systems' to show)
-│   │   ├───sdr-server omitted (use '--all-systems' to show)
-│   │   ├───sdrpp-brown omitted (use '--all-systems' to show)
-│   │   └───sdrpp-brown-server omitted (use '--all-systems' to show)
+│   │   ├───certstrap: derivation 'certstrap-1.3.0'
+│   │   ├───dsd-fme: derivation 'dsd-fme-2026-07-11'
+│   │   ├───itpp: derivation 'it++-4.3.1'
+│   │   ├───libpulseaudio: derivation 'libpulseaudio-17.0'
+│   │   ├───m17-fme: derivation 'm17-fme-2026-01-26'
+│   │   ├───mbelib: derivation 'mbelib-1.3.0'
+│   │   ├───mbelib-lwvmobile: derivation 'mbelib-lwvmobile-2022-08-25'
+│   │   ├───pulseaudio: derivation 'pulseaudio-17.0'
+│   │   ├───pulseaudioFull: derivation 'pulseaudio-17.0'
+│   │   ├───sdr-server: derivation 'sdr-server-2025-11-23'
+│   │   ├───sdrpp-brown: derivation 'sdrpp-brown-1.2.1-2026-05-08'
+│   │   └───sdrpp-brown-server: derivation 'sdrpp-brown-1.2.1-2026-05-08'
 │   ├───x86_64-darwin
-│   │   ├───certstrap omitted (use '--all-systems' to show)
-│   │   ├───dsd-fme omitted (use '--all-systems' to show)
-│   │   ├───itpp omitted (use '--all-systems' to show)
-│   │   ├───libpulseaudio omitted (use '--all-systems' to show)
-│   │   ├───m17-fme omitted (use '--all-systems' to show)
-│   │   ├───mbelib omitted (use '--all-systems' to show)
-│   │   ├───mbelib-lwvmobile omitted (use '--all-systems' to show)
-│   │   ├───pulseaudio omitted (use '--all-systems' to show)
-│   │   ├───pulseaudioFull omitted (use '--all-systems' to show)
-│   │   ├───sdr-server omitted (use '--all-systems' to show)
-│   │   ├───sdrpp-brown omitted (use '--all-systems' to show)
-│   │   └───sdrpp-brown-server omitted (use '--all-systems' to show)
+│   │   ├───certstrap: derivation 'certstrap-1.3.0'
+│   │   ├───dsd-fme: derivation 'dsd-fme-2026-07-11'
+│   │   ├───itpp: derivation 'it++-4.3.1'
+│   │   ├───libpulseaudio: derivation 'libpulseaudio-17.0'
+│   │   ├───m17-fme: derivation 'm17-fme-2026-01-26'
+│   │   ├───mbelib: derivation 'mbelib-1.3.0'
+│   │   ├───mbelib-lwvmobile: derivation 'mbelib-lwvmobile-2022-08-25'
+│   │   ├───pulseaudio: derivation 'pulseaudio-17.0'
+│   │   ├───pulseaudioFull: derivation 'pulseaudio-17.0'
+│   │   ├───sdr-server: derivation 'sdr-server-2025-11-23'
+│   │   ├───sdrpp-brown: derivation 'sdrpp-brown-1.2.1-2026-05-08'
+│   │   └───sdrpp-brown-server: derivation 'sdrpp-brown-1.2.1-2026-05-08'
 │   └───x86_64-linux
-│       ├───certstrap omitted (use '--all-systems' to show)
-│       ├───dsd-fme omitted (use '--all-systems' to show)
-│       ├───itpp omitted (use '--all-systems' to show)
-│       ├───libpulseaudio omitted (use '--all-systems' to show)
-│       ├───m17-fme omitted (use '--all-systems' to show)
-│       ├───mbelib omitted (use '--all-systems' to show)
-│       ├───mbelib-lwvmobile omitted (use '--all-systems' to show)
-│       ├───pulseaudio omitted (use '--all-systems' to show)
-│       ├───pulseaudioFull omitted (use '--all-systems' to show)
-│       ├───sdr-server omitted (use '--all-systems' to show)
-│       ├───sdrpp-brown omitted (use '--all-systems' to show)
-│       └───sdrpp-brown-server omitted (use '--all-systems' to show)
+│       ├───certstrap: derivation 'certstrap-1.3.0'
+│       ├───dsd-fme: derivation 'dsd-fme-2026-07-11'
+│       ├───itpp: derivation 'it++-4.3.1'
+│       ├───libpulseaudio: derivation 'libpulseaudio-17.0'
+│       ├───m17-fme: derivation 'm17-fme-2026-01-26'
+│       ├───mbelib: derivation 'mbelib-1.3.0'
+│       ├───mbelib-lwvmobile: derivation 'mbelib-lwvmobile-2022-08-25'
+│       ├───pulseaudio: derivation 'pulseaudio-17.0'
+│       ├───pulseaudioFull: derivation 'pulseaudio-17.0'
+│       ├───sdr-server: derivation 'sdr-server-2025-11-23'
+│       ├───sdrpp-brown: derivation 'sdrpp-brown-1.2.1-2026-05-08'
+│       └───sdrpp-brown-server: derivation 'sdrpp-brown-1.2.1-2026-05-08'
 ├───darwinModules: unknown
 ├───formatter
 │   ├───aarch64-darwin: package 'nixfmt-tree-2.5.0'
-│   ├───aarch64-linux omitted (use '--all-systems' to show)
-│   ├───x86_64-darwin omitted (use '--all-systems' to show)
-│   └───x86_64-linux omitted (use '--all-systems' to show)
+│   ├───aarch64-linux: package 'nixfmt-tree-2.5.0'
+│   ├───x86_64-darwin: package 'nixfmt-tree-2.5.0'
+│   └───x86_64-linux: package 'nixfmt-tree-2.5.0'
 ├───legacyPackages
 │   ├───aarch64-darwin omitted (use '--legacy' to show)
 │   ├───aarch64-linux omitted (use '--legacy' to show)
@@ -155,44 +155,44 @@ git+file:///Users/socheat/Workspace/github.com/socheatsok78/nur
     │   ├───sdrpp-brown: package 'sdrpp-brown-1.2.1-2026-05-08'
     │   └───sdrpp-brown-server: package 'sdrpp-brown-1.2.1-2026-05-08'
     ├───aarch64-linux
-    │   ├───certstrap omitted (use '--all-systems' to show)
-    │   ├───dsd-fme omitted (use '--all-systems' to show)
-    │   ├───itpp omitted (use '--all-systems' to show)
-    │   ├───libpulseaudio omitted (use '--all-systems' to show)
-    │   ├───m17-fme omitted (use '--all-systems' to show)
-    │   ├───mbelib omitted (use '--all-systems' to show)
-    │   ├───mbelib-lwvmobile omitted (use '--all-systems' to show)
-    │   ├───pulseaudio omitted (use '--all-systems' to show)
-    │   ├───pulseaudioFull omitted (use '--all-systems' to show)
-    │   ├───sdr-server omitted (use '--all-systems' to show)
-    │   ├───sdrpp-brown omitted (use '--all-systems' to show)
-    │   └───sdrpp-brown-server omitted (use '--all-systems' to show)
+    │   ├───certstrap: package 'certstrap-1.3.0'
+    │   ├───dsd-fme: package 'dsd-fme-2026-07-11'
+    │   ├───itpp: package 'it++-4.3.1'
+    │   ├───libpulseaudio: package 'libpulseaudio-17.0'
+    │   ├───m17-fme: package 'm17-fme-2026-01-26'
+    │   ├───mbelib: package 'mbelib-1.3.0'
+    │   ├───mbelib-lwvmobile: package 'mbelib-lwvmobile-2022-08-25'
+    │   ├───pulseaudio: package 'pulseaudio-17.0'
+    │   ├───pulseaudioFull: package 'pulseaudio-17.0'
+    │   ├───sdr-server: package 'sdr-server-2025-11-23'
+    │   ├───sdrpp-brown: package 'sdrpp-brown-1.2.1-2026-05-08'
+    │   └───sdrpp-brown-server: package 'sdrpp-brown-1.2.1-2026-05-08'
     ├───x86_64-darwin
-    │   ├───certstrap omitted (use '--all-systems' to show)
-    │   ├───dsd-fme omitted (use '--all-systems' to show)
-    │   ├───itpp omitted (use '--all-systems' to show)
-    │   ├───libpulseaudio omitted (use '--all-systems' to show)
-    │   ├───m17-fme omitted (use '--all-systems' to show)
-    │   ├───mbelib omitted (use '--all-systems' to show)
-    │   ├───mbelib-lwvmobile omitted (use '--all-systems' to show)
-    │   ├───pulseaudio omitted (use '--all-systems' to show)
-    │   ├───pulseaudioFull omitted (use '--all-systems' to show)
-    │   ├───sdr-server omitted (use '--all-systems' to show)
-    │   ├───sdrpp-brown omitted (use '--all-systems' to show)
-    │   └───sdrpp-brown-server omitted (use '--all-systems' to show)
+    │   ├───certstrap: package 'certstrap-1.3.0'
+    │   ├───dsd-fme: package 'dsd-fme-2026-07-11'
+    │   ├───itpp: package 'it++-4.3.1'
+    │   ├───libpulseaudio: package 'libpulseaudio-17.0'
+    │   ├───m17-fme: package 'm17-fme-2026-01-26'
+    │   ├───mbelib: package 'mbelib-1.3.0'
+    │   ├───mbelib-lwvmobile: package 'mbelib-lwvmobile-2022-08-25'
+    │   ├───pulseaudio: package 'pulseaudio-17.0'
+    │   ├───pulseaudioFull: package 'pulseaudio-17.0'
+    │   ├───sdr-server: package 'sdr-server-2025-11-23'
+    │   ├───sdrpp-brown: package 'sdrpp-brown-1.2.1-2026-05-08'
+    │   └───sdrpp-brown-server: package 'sdrpp-brown-1.2.1-2026-05-08'
     └───x86_64-linux
-        ├───certstrap omitted (use '--all-systems' to show)
-        ├───dsd-fme omitted (use '--all-systems' to show)
-        ├───itpp omitted (use '--all-systems' to show)
-        ├───libpulseaudio omitted (use '--all-systems' to show)
-        ├───m17-fme omitted (use '--all-systems' to show)
-        ├───mbelib omitted (use '--all-systems' to show)
-        ├───mbelib-lwvmobile omitted (use '--all-systems' to show)
-        ├───pulseaudio omitted (use '--all-systems' to show)
-        ├───pulseaudioFull omitted (use '--all-systems' to show)
-        ├───sdr-server omitted (use '--all-systems' to show)
-        ├───sdrpp-brown omitted (use '--all-systems' to show)
-        └───sdrpp-brown-server omitted (use '--all-systems' to show)
+        ├───certstrap: package 'certstrap-1.3.0'
+        ├───dsd-fme: package 'dsd-fme-2026-07-11'
+        ├───itpp: package 'it++-4.3.1'
+        ├───libpulseaudio: package 'libpulseaudio-17.0'
+        ├───m17-fme: package 'm17-fme-2026-01-26'
+        ├───mbelib: package 'mbelib-1.3.0'
+        ├───mbelib-lwvmobile: package 'mbelib-lwvmobile-2022-08-25'
+        ├───pulseaudio: package 'pulseaudio-17.0'
+        ├───pulseaudioFull: package 'pulseaudio-17.0'
+        ├───sdr-server: package 'sdr-server-2025-11-23'
+        ├───sdrpp-brown: package 'sdrpp-brown-1.2.1-2026-05-08'
+        └───sdrpp-brown-server: package 'sdrpp-brown-1.2.1-2026-05-08'
 ```
 
 ## License
