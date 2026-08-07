@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+
+function nocolor() {
+    sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,3})*)?[mGK]//g"
+}
+
 cat <<'EOT'
 ## About
 
@@ -68,7 +73,7 @@ To use this repository as a flake, add the following to your `flake.nix`:
 $ nix flake show
 
 EOT
-nix flake show --quiet --no-pretty
+nix flake show --quiet --no-pretty | nocolor
 cat <<'EOT'
 ```
 

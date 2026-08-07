@@ -65,134 +65,134 @@ To use this repository as a flake, add the following to your `flake.nix`:
 ```sh
 $ nix flake show
 
-[1mgit+file:///Users/socheat/Workspace/github.com/socheatsok78/nur[0m
-[32;1m├───[0m[1mchecks[0m
-[32;1m│   ├───[0m[1maarch64-darwin[0m
-[32;1m│   │   ├───[0m[1mcertstrap[0m: derivation 'certstrap-1.3.0'
-[32;1m│   │   ├───[0m[1mdsd-fme[0m: derivation 'dsd-fme-2026-07-11'
-[32;1m│   │   ├───[0m[1mitpp[0m: derivation 'it++-4.3.1'
-[32;1m│   │   ├───[0m[1mlibpulseaudio[0m: derivation 'libpulseaudio-17.0'
-[32;1m│   │   ├───[0m[1mm17-fme[0m: derivation 'm17-fme-2026-01-26'
-[32;1m│   │   ├───[0m[1mmbelib[0m: derivation 'mbelib-1.3.0'
-[32;1m│   │   ├───[0m[1mmbelib-lwvmobile[0m: derivation 'mbelib-lwvmobile-2022-08-25'
-[32;1m│   │   ├───[0m[1mpulseaudio[0m: derivation 'pulseaudio-17.0'
-[32;1m│   │   ├───[0m[1mpulseaudioFull[0m: derivation 'pulseaudio-17.0'
-[32;1m│   │   ├───[0m[1msdr-server[0m: derivation 'sdr-server-2025-11-23'
-[32;1m│   │   ├───[0m[1msdrpp-brown[0m: derivation 'sdrpp-brown-1.2.1-2026-05-08'
-[32;1m│   │   └───[0m[1msdrpp-brown-server[0m: derivation 'sdrpp-brown-1.2.1-2026-05-08'
-[32;1m│   ├───[0m[1maarch64-linux[0m
-[32;1m│   │   ├───[0m[1mcertstrap[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1mdsd-fme[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1mitpp[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1mlibpulseaudio[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1mm17-fme[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1mmbelib[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1mmbelib-lwvmobile[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1mpulseaudio[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1mpulseaudioFull[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1msdr-server[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1msdrpp-brown[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   └───[0m[1msdrpp-brown-server[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   ├───[0m[1mx86_64-darwin[0m
-[32;1m│   │   ├───[0m[1mcertstrap[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1mdsd-fme[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1mitpp[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1mlibpulseaudio[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1mm17-fme[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1mmbelib[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1mmbelib-lwvmobile[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1mpulseaudio[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1mpulseaudioFull[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1msdr-server[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   ├───[0m[1msdrpp-brown[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   │   └───[0m[1msdrpp-brown-server[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   └───[0m[1mx86_64-linux[0m
-[32;1m│       ├───[0m[1mcertstrap[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│       ├───[0m[1mdsd-fme[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│       ├───[0m[1mitpp[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│       ├───[0m[1mlibpulseaudio[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│       ├───[0m[1mm17-fme[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│       ├───[0m[1mmbelib[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│       ├───[0m[1mmbelib-lwvmobile[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│       ├───[0m[1mpulseaudio[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│       ├───[0m[1mpulseaudioFull[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│       ├───[0m[1msdr-server[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│       ├───[0m[1msdrpp-brown[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│       └───[0m[1msdrpp-brown-server[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m├───[0m[1mdarwinModules[0m: [35;1munknown[0m
-[32;1m├───[0m[1mformatter[0m
-[32;1m│   ├───[0m[1maarch64-darwin[0m: package 'nixfmt-tree-2.5.0'
-[32;1m│   ├───[0m[1maarch64-linux[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   ├───[0m[1mx86_64-darwin[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m│   └───[0m[1mx86_64-linux[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m├───[0m[1mlegacyPackages[0m
-[32;1m│   ├───[0m[1maarch64-darwin[0m [35;1momitted[0m (use '--legacy' to show)
-[32;1m│   ├───[0m[1maarch64-linux[0m [35;1momitted[0m (use '--legacy' to show)
-[32;1m│   ├───[0m[1marmv6l-linux[0m [35;1momitted[0m (use '--legacy' to show)
-[32;1m│   ├───[0m[1marmv7l-linux[0m [35;1momitted[0m (use '--legacy' to show)
-[32;1m│   ├───[0m[1mi686-linux[0m [35;1momitted[0m (use '--legacy' to show)
-[32;1m│   ├───[0m[1mpowerpc64le-linux[0m [35;1momitted[0m (use '--legacy' to show)
-[32;1m│   ├───[0m[1mriscv64-linux[0m [35;1momitted[0m (use '--legacy' to show)
-[32;1m│   ├───[0m[1mx86_64-darwin[0m [35;1momitted[0m (use '--legacy' to show)
-[32;1m│   ├───[0m[1mx86_64-freebsd[0m [35;1momitted[0m (use '--legacy' to show)
-[32;1m│   └───[0m[1mx86_64-linux[0m [35;1momitted[0m (use '--legacy' to show)
-[32;1m├───[0m[1moverlays[0m
-[32;1m│   ├───[0m[1mdefault[0m: [35;1mNixpkgs overlay[0m
-[32;1m│   ├───[0m[1minetutils[0m: [35;1mNixpkgs overlay[0m
-[32;1m│   └───[0m[1munfree[0m: [35;1mNixpkgs overlay[0m
-[32;1m└───[0m[1mpackages[0m
-[32;1m    ├───[0m[1maarch64-darwin[0m
-[32;1m    │   ├───[0m[1mcertstrap[0m: package 'certstrap-1.3.0'
-[32;1m    │   ├───[0m[1mdsd-fme[0m: package 'dsd-fme-2026-07-11'
-[32;1m    │   ├───[0m[1mitpp[0m: package 'it++-4.3.1'
-[32;1m    │   ├───[0m[1mlibpulseaudio[0m: package 'libpulseaudio-17.0'
-[32;1m    │   ├───[0m[1mm17-fme[0m: package 'm17-fme-2026-01-26'
-[32;1m    │   ├───[0m[1mmbelib[0m: package 'mbelib-1.3.0'
-[32;1m    │   ├───[0m[1mmbelib-lwvmobile[0m: package 'mbelib-lwvmobile-2022-08-25'
-[32;1m    │   ├───[0m[1mpulseaudio[0m: package 'pulseaudio-17.0'
-[32;1m    │   ├───[0m[1mpulseaudioFull[0m: package 'pulseaudio-17.0'
-[32;1m    │   ├───[0m[1msdr-server[0m: package 'sdr-server-2025-11-23'
-[32;1m    │   ├───[0m[1msdrpp-brown[0m: package 'sdrpp-brown-1.2.1-2026-05-08'
-[32;1m    │   └───[0m[1msdrpp-brown-server[0m: package 'sdrpp-brown-1.2.1-2026-05-08'
-[32;1m    ├───[0m[1maarch64-linux[0m
-[32;1m    │   ├───[0m[1mcertstrap[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1mdsd-fme[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1mitpp[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1mlibpulseaudio[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1mm17-fme[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1mmbelib[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1mmbelib-lwvmobile[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1mpulseaudio[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1mpulseaudioFull[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1msdr-server[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1msdrpp-brown[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   └───[0m[1msdrpp-brown-server[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    ├───[0m[1mx86_64-darwin[0m
-[32;1m    │   ├───[0m[1mcertstrap[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1mdsd-fme[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1mitpp[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1mlibpulseaudio[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1mm17-fme[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1mmbelib[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1mmbelib-lwvmobile[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1mpulseaudio[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1mpulseaudioFull[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1msdr-server[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   ├───[0m[1msdrpp-brown[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    │   └───[0m[1msdrpp-brown-server[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m    └───[0m[1mx86_64-linux[0m
-[32;1m        ├───[0m[1mcertstrap[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m        ├───[0m[1mdsd-fme[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m        ├───[0m[1mitpp[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m        ├───[0m[1mlibpulseaudio[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m        ├───[0m[1mm17-fme[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m        ├───[0m[1mmbelib[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m        ├───[0m[1mmbelib-lwvmobile[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m        ├───[0m[1mpulseaudio[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m        ├───[0m[1mpulseaudioFull[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m        ├───[0m[1msdr-server[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m        ├───[0m[1msdrpp-brown[0m [35;1momitted[0m (use '--all-systems' to show)
-[32;1m        └───[0m[1msdrpp-brown-server[0m [35;1momitted[0m (use '--all-systems' to show)
+git+file:///Users/socheat/Workspace/github.com/socheatsok78/nur
+├───checks
+│   ├───aarch64-darwin
+│   │   ├───certstrap: derivation 'certstrap-1.3.0'
+│   │   ├───dsd-fme: derivation 'dsd-fme-2026-07-11'
+│   │   ├───itpp: derivation 'it++-4.3.1'
+│   │   ├───libpulseaudio: derivation 'libpulseaudio-17.0'
+│   │   ├───m17-fme: derivation 'm17-fme-2026-01-26'
+│   │   ├───mbelib: derivation 'mbelib-1.3.0'
+│   │   ├───mbelib-lwvmobile: derivation 'mbelib-lwvmobile-2022-08-25'
+│   │   ├───pulseaudio: derivation 'pulseaudio-17.0'
+│   │   ├───pulseaudioFull: derivation 'pulseaudio-17.0'
+│   │   ├───sdr-server: derivation 'sdr-server-2025-11-23'
+│   │   ├───sdrpp-brown: derivation 'sdrpp-brown-1.2.1-2026-05-08'
+│   │   └───sdrpp-brown-server: derivation 'sdrpp-brown-1.2.1-2026-05-08'
+│   ├───aarch64-linux
+│   │   ├───certstrap omitted (use '--all-systems' to show)
+│   │   ├───dsd-fme omitted (use '--all-systems' to show)
+│   │   ├───itpp omitted (use '--all-systems' to show)
+│   │   ├───libpulseaudio omitted (use '--all-systems' to show)
+│   │   ├───m17-fme omitted (use '--all-systems' to show)
+│   │   ├───mbelib omitted (use '--all-systems' to show)
+│   │   ├───mbelib-lwvmobile omitted (use '--all-systems' to show)
+│   │   ├───pulseaudio omitted (use '--all-systems' to show)
+│   │   ├───pulseaudioFull omitted (use '--all-systems' to show)
+│   │   ├───sdr-server omitted (use '--all-systems' to show)
+│   │   ├───sdrpp-brown omitted (use '--all-systems' to show)
+│   │   └───sdrpp-brown-server omitted (use '--all-systems' to show)
+│   ├───x86_64-darwin
+│   │   ├───certstrap omitted (use '--all-systems' to show)
+│   │   ├───dsd-fme omitted (use '--all-systems' to show)
+│   │   ├───itpp omitted (use '--all-systems' to show)
+│   │   ├───libpulseaudio omitted (use '--all-systems' to show)
+│   │   ├───m17-fme omitted (use '--all-systems' to show)
+│   │   ├───mbelib omitted (use '--all-systems' to show)
+│   │   ├───mbelib-lwvmobile omitted (use '--all-systems' to show)
+│   │   ├───pulseaudio omitted (use '--all-systems' to show)
+│   │   ├───pulseaudioFull omitted (use '--all-systems' to show)
+│   │   ├───sdr-server omitted (use '--all-systems' to show)
+│   │   ├───sdrpp-brown omitted (use '--all-systems' to show)
+│   │   └───sdrpp-brown-server omitted (use '--all-systems' to show)
+│   └───x86_64-linux
+│       ├───certstrap omitted (use '--all-systems' to show)
+│       ├───dsd-fme omitted (use '--all-systems' to show)
+│       ├───itpp omitted (use '--all-systems' to show)
+│       ├───libpulseaudio omitted (use '--all-systems' to show)
+│       ├───m17-fme omitted (use '--all-systems' to show)
+│       ├───mbelib omitted (use '--all-systems' to show)
+│       ├───mbelib-lwvmobile omitted (use '--all-systems' to show)
+│       ├───pulseaudio omitted (use '--all-systems' to show)
+│       ├───pulseaudioFull omitted (use '--all-systems' to show)
+│       ├───sdr-server omitted (use '--all-systems' to show)
+│       ├───sdrpp-brown omitted (use '--all-systems' to show)
+│       └───sdrpp-brown-server omitted (use '--all-systems' to show)
+├───darwinModules: unknown
+├───formatter
+│   ├───aarch64-darwin: package 'nixfmt-tree-2.5.0'
+│   ├───aarch64-linux omitted (use '--all-systems' to show)
+│   ├───x86_64-darwin omitted (use '--all-systems' to show)
+│   └───x86_64-linux omitted (use '--all-systems' to show)
+├───legacyPackages
+│   ├───aarch64-darwin omitted (use '--legacy' to show)
+│   ├───aarch64-linux omitted (use '--legacy' to show)
+│   ├───armv6l-linux omitted (use '--legacy' to show)
+│   ├───armv7l-linux omitted (use '--legacy' to show)
+│   ├───i686-linux omitted (use '--legacy' to show)
+│   ├───powerpc64le-linux omitted (use '--legacy' to show)
+│   ├───riscv64-linux omitted (use '--legacy' to show)
+│   ├───x86_64-darwin omitted (use '--legacy' to show)
+│   ├───x86_64-freebsd omitted (use '--legacy' to show)
+│   └───x86_64-linux omitted (use '--legacy' to show)
+├───overlays
+│   ├───default: Nixpkgs overlay
+│   ├───inetutils: Nixpkgs overlay
+│   └───unfree: Nixpkgs overlay
+└───packages
+    ├───aarch64-darwin
+    │   ├───certstrap: package 'certstrap-1.3.0'
+    │   ├───dsd-fme: package 'dsd-fme-2026-07-11'
+    │   ├───itpp: package 'it++-4.3.1'
+    │   ├───libpulseaudio: package 'libpulseaudio-17.0'
+    │   ├───m17-fme: package 'm17-fme-2026-01-26'
+    │   ├───mbelib: package 'mbelib-1.3.0'
+    │   ├───mbelib-lwvmobile: package 'mbelib-lwvmobile-2022-08-25'
+    │   ├───pulseaudio: package 'pulseaudio-17.0'
+    │   ├───pulseaudioFull: package 'pulseaudio-17.0'
+    │   ├───sdr-server: package 'sdr-server-2025-11-23'
+    │   ├───sdrpp-brown: package 'sdrpp-brown-1.2.1-2026-05-08'
+    │   └───sdrpp-brown-server: package 'sdrpp-brown-1.2.1-2026-05-08'
+    ├───aarch64-linux
+    │   ├───certstrap omitted (use '--all-systems' to show)
+    │   ├───dsd-fme omitted (use '--all-systems' to show)
+    │   ├───itpp omitted (use '--all-systems' to show)
+    │   ├───libpulseaudio omitted (use '--all-systems' to show)
+    │   ├───m17-fme omitted (use '--all-systems' to show)
+    │   ├───mbelib omitted (use '--all-systems' to show)
+    │   ├───mbelib-lwvmobile omitted (use '--all-systems' to show)
+    │   ├───pulseaudio omitted (use '--all-systems' to show)
+    │   ├───pulseaudioFull omitted (use '--all-systems' to show)
+    │   ├───sdr-server omitted (use '--all-systems' to show)
+    │   ├───sdrpp-brown omitted (use '--all-systems' to show)
+    │   └───sdrpp-brown-server omitted (use '--all-systems' to show)
+    ├───x86_64-darwin
+    │   ├───certstrap omitted (use '--all-systems' to show)
+    │   ├───dsd-fme omitted (use '--all-systems' to show)
+    │   ├───itpp omitted (use '--all-systems' to show)
+    │   ├───libpulseaudio omitted (use '--all-systems' to show)
+    │   ├───m17-fme omitted (use '--all-systems' to show)
+    │   ├───mbelib omitted (use '--all-systems' to show)
+    │   ├───mbelib-lwvmobile omitted (use '--all-systems' to show)
+    │   ├───pulseaudio omitted (use '--all-systems' to show)
+    │   ├───pulseaudioFull omitted (use '--all-systems' to show)
+    │   ├───sdr-server omitted (use '--all-systems' to show)
+    │   ├───sdrpp-brown omitted (use '--all-systems' to show)
+    │   └───sdrpp-brown-server omitted (use '--all-systems' to show)
+    └───x86_64-linux
+        ├───certstrap omitted (use '--all-systems' to show)
+        ├───dsd-fme omitted (use '--all-systems' to show)
+        ├───itpp omitted (use '--all-systems' to show)
+        ├───libpulseaudio omitted (use '--all-systems' to show)
+        ├───m17-fme omitted (use '--all-systems' to show)
+        ├───mbelib omitted (use '--all-systems' to show)
+        ├───mbelib-lwvmobile omitted (use '--all-systems' to show)
+        ├───pulseaudio omitted (use '--all-systems' to show)
+        ├───pulseaudioFull omitted (use '--all-systems' to show)
+        ├───sdr-server omitted (use '--all-systems' to show)
+        ├───sdrpp-brown omitted (use '--all-systems' to show)
+        └───sdrpp-brown-server omitted (use '--all-systems' to show)
 ```
 
 ## License
