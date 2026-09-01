@@ -10,6 +10,21 @@
 {
   pkgs ? import <nixpkgs> { },
 }:
+let
+  # Overrides
+  pulseaudio = pkgs.callPackage ./overrides/pulseaudio { };
+  # pulseaudioFull = pulseaudio.override {
+  #   jackaudioSupport = true;
+  #   airtunesSupport = true;
+  #   bluetoothSupport = !pkgs.stdenv.hostPlatform.isDarwin;
+  #   advancedBluetoothCodecs = !pkgs.stdenv.hostPlatform.isDarwin;
+  #   remoteControlSupport = !pkgs.stdenv.hostPlatform.isDarwin;
+  #   zeroconfSupport = true;
+  # };
+  libpulseaudio = pulseaudio.override {
+    libOnly = true;
+  };
+in
 rec {
   # The `lib`, `overlays`, `nixosModules`, `homeModules`,
   # `darwinModules` and `flakeModules` names are special
@@ -20,21 +35,7 @@ rec {
   # flakeModules = { }; # flake-parts modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  # Overrides
-  pulseaudio = pkgs.callPackage ./overrides/pulseaudio { };
-  pulseaudioFull = pulseaudio.override {
-    jackaudioSupport = true;
-    airtunesSupport = true;
-    bluetoothSupport = !pkgs.stdenv.hostPlatform.isDarwin;
-    advancedBluetoothCodecs = !pkgs.stdenv.hostPlatform.isDarwin;
-    remoteControlSupport = !pkgs.stdenv.hostPlatform.isDarwin;
-    zeroconfSupport = true;
-  };
-  libpulseaudio = pulseaudio.override {
-    libOnly = true;
-  };
-
-  # packages
+  # Packages
   certstrap = pkgs.callPackage ./pkgs/certstrap { };
   dsd-fme = pkgs.callPackage ./pkgs/dsd-fme {
     inherit libpulseaudio mbelib-lwvmobile;

@@ -12,8 +12,6 @@ let
     value = v;
   };
 
-  # This is a list of packages that are overridden in this overlay. These packages will not be included in the default package set.
-  isOverridedPackage = n: n == "pulseaudio" || n == "pulseaudioFull" || n == "libpulseaudio";
 in
 {
   default =
@@ -23,7 +21,7 @@ in
     in
     builtins.listToAttrs (
       map (n: nameValuePair n nurAttrs.${n}) (
-        builtins.filter (n: !isReserved n && !isOverridedPackage n) (builtins.attrNames nurAttrs)
+        builtins.filter (n: !isReserved n) (builtins.attrNames nurAttrs)
       )
     );
   unfree =
