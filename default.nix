@@ -20,7 +20,10 @@ rec {
   # flakeModules = { }; # flake-parts modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  # Packages
+  # Overrides
+  pulseaudio = pkgs.callPackage ./overrides/pulseaudio { };
+
+  # packages
   certstrap = pkgs.callPackage ./pkgs/certstrap { };
   dsd-fme = pkgs.callPackage ./pkgs/dsd-fme {
     inherit libpulseaudio mbelib-lwvmobile;
@@ -35,7 +38,6 @@ rec {
   };
   mbelib = pkgs.callPackage ./pkgs/mbelib { };
   mbelib-lwvmobile = pkgs.callPackage ./pkgs/mbelib-lwvmobile { };
-  pulseaudio = pkgs.callPackage ./pkgs/pulseaudio { };
   pulseaudioFull = pulseaudio.override {
     jackaudioSupport = true;
     airtunesSupport = true;
