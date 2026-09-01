@@ -22,22 +22,6 @@ rec {
 
   # Overrides
   pulseaudio = pkgs.callPackage ./overrides/pulseaudio { };
-
-  # packages
-  certstrap = pkgs.callPackage ./pkgs/certstrap { };
-  dsd-fme = pkgs.callPackage ./pkgs/dsd-fme {
-    inherit libpulseaudio mbelib-lwvmobile;
-    pulseaudioSupport = true;
-  };
-  libpulseaudio = pulseaudio.override {
-    libOnly = true;
-  };
-  m17-fme = pkgs.callPackage ./pkgs/m17-fme {
-    inherit libpulseaudio;
-    pulseaudioSupport = true;
-  };
-  mbelib = pkgs.callPackage ./pkgs/mbelib { };
-  mbelib-lwvmobile = pkgs.callPackage ./pkgs/mbelib-lwvmobile { };
   pulseaudioFull = pulseaudio.override {
     jackaudioSupport = true;
     airtunesSupport = true;
@@ -46,6 +30,22 @@ rec {
     remoteControlSupport = !pkgs.stdenv.hostPlatform.isDarwin;
     zeroconfSupport = true;
   };
+  libpulseaudio = pulseaudio.override {
+    libOnly = true;
+  };
+
+  # packages
+  certstrap = pkgs.callPackage ./pkgs/certstrap { };
+  dsd-fme = pkgs.callPackage ./pkgs/dsd-fme {
+    inherit libpulseaudio mbelib-lwvmobile;
+    pulseaudioSupport = true;
+  };
+  m17-fme = pkgs.callPackage ./pkgs/m17-fme {
+    inherit libpulseaudio;
+    pulseaudioSupport = true;
+  };
+  mbelib = pkgs.callPackage ./pkgs/mbelib { };
+  mbelib-lwvmobile = pkgs.callPackage ./pkgs/mbelib-lwvmobile { };
   sdr-server = pkgs.callPackage ./pkgs/sdr-server { };
   sdrpp-brown = pkgs.callPackage ./pkgs/sdrpp-brown {
     inherit libpulseaudio;
