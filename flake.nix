@@ -19,7 +19,7 @@
       );
       legacyPackages = forAllSystems (
         system:
-        import ./default.nix {
+        import ./packages.nix {
           pkgs = nixpkgs.legacyPackages.${system};
         }
       );
