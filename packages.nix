@@ -11,8 +11,13 @@
   pkgs ? import <nixpkgs> { },
 }:
 let
-  # Overrides
-  pulseaudio = pkgs.callPackage ./overrides/pulseaudio { };
+  currentSystem = pkgs.stdenvNoCC.hostPlatform.system;
+
+  isDarwin = currentSystem == "x86_64-darwin" || currentSystem == "aarch64-darwin";
+
+  # Pulseaudio override if on Darwin
+  pulseaudio = if isDarwin then pkgs.callPackage ./overrides/pulseaudio { } else pkgs.pulseaudio;
+  # pulseaudio = pkgs.callPackage ./overrides/pulseaudio { };
   # pulseaudioFull = pulseaudio.override {
   #   jackaudioSupport = true;
   #   airtunesSupport = true;
@@ -21,9 +26,13 @@ let
   #   remoteControlSupport = !pkgs.stdenv.hostPlatform.isDarwin;
   #   zeroconfSupport = true;
   # };
-  libpulseaudio = pulseaudio.override {
-    libOnly = true;
-  };
+  libpulseaudio =
+    if isDarwin then
+      pulseaudio.override {
+        libOnly = true;
+      }
+    else
+      pkgs.libpulseaudio;
 in
 rec {
   # The `lib`, `overlays`, `nixosModules`, `homeModules`,
