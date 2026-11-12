@@ -17,7 +17,7 @@ in
   default =
     final: prev:
     let
-      nurAttrs = import ../default.nix { pkgs = prev; };
+      nurAttrs = import ../packages.nix { pkgs = prev; };
     in
     builtins.listToAttrs (
       map (n: nameValuePair n nurAttrs.${n}) (
