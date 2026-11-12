@@ -1,18 +1,20 @@
 {
   lib,
-  buildGoModule,
+  buildGo127Module,
   fetchFromGitHub,
 }:
-
+let
+  buildGoModule = buildGo127Module;
+in
 buildGoModule rec {
   pname = "certstrap";
-  version = "1.3.0";
+  version = "1.4.1";
 
   src = fetchFromGitHub {
     owner = "socheatsok78";
     repo = "certstrap";
     rev = "v${version}";
-    sha256 = "sha256-mbZtomR8nnawXr3nGVSEuVObe79M1CqTlYN/aEpKmcU=";
+    sha256 = "sha256-5w79prxZrmB7KazOagmdJH9e5GM7iybQy8ttWxVNTMU=";
   };
 
   ldflags = [
@@ -21,7 +23,7 @@ buildGoModule rec {
   ];
 
   doCheck = false;
-  vendorHash = "sha256-r7iYhTmFKTjfv11fEerC72M7JBp64rWfbkoTKzObNqM=";
+  vendorHash = "sha256-wIEr8du0aQvcvQ4VXL6VdhtNUMo/bWVH32gaRQktSA0=";
 
   meta = with lib; {
     homepage = "https://github.com/square/certstrap";
